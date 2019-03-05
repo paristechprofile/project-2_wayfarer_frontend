@@ -40,7 +40,7 @@ class App extends Component {
   handleLogOut = () => {
     this.setState({
       email: '',
-      password: '',
+      pw: '',
       isLoggedIn: false
     })
     localStorage.clear()
@@ -56,7 +56,7 @@ class App extends Component {
     e.preventDefault()
     axios.post('http://localhost:3001/user/signup', 
 			{ email: this.state.email,
-      	password: this.state.password }
+      	pw: this.state.pw }
 			)
       .then( response => {
         console.log(response)
@@ -72,7 +72,7 @@ class App extends Component {
     e.preventDefault()
     axios.post('http://localhost:3001/user/login', {
       email: this.state.email,
-      password: this.state.password
+      pw: this.state.pw
     })
     .then( response => {
       localStorage.token = response.data.signedJwt
@@ -94,8 +94,8 @@ class App extends Component {
           </div>
 
           <div>
-            <label htmlFor='password'>Password</label>
-            <input type='text' name='password' onChange={this.props.handleInput} />
+            <label htmlFor='pw'>Password</label>
+            <input type='text' name='pw' onChange={this.props.handleInput} />
           </div>
           <input value='Submit' type='submit' onClick={this.props.handleSignUp} />
         </form>
