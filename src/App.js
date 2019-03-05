@@ -54,8 +54,9 @@ class App extends Component {
 
   handleSignUp = (e) => {
     e.preventDefault()
+    console.log('meow')
     axios.post('http://localhost:3001/user/signup', 
-			{ email: this.state.email,
+			{ username: this.state.username,
       	pw: this.state.pw }
 			)
       .then( response => {
@@ -90,14 +91,14 @@ class App extends Component {
         <form>
           <div>
             <label htmlFor='username'>Username</label>
-            <input type='text' name='username' onChange={this.props.handleInput} />
+            <input type='text' name='username' onChange={this.handleInput} />
           </div>
 
           <div>
             <label htmlFor='pw'>Password</label>
-            <input type='text' name='pw' onChange={this.props.handleInput} />
+            <input type='text' name='pw' onChange={this.handleInput} />
           </div>
-          <input value='Submit' type='submit' onClick={this.props.handleSignUp} />
+          <button onClick={this.handleSignUp}>Sign UP</button>
         </form>
       </div>
     );
