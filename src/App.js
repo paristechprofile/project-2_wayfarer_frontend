@@ -39,7 +39,7 @@ class App extends Component {
 
   handleLogOut = () => {
     this.setState({
-      email: '',
+      username: '',
       pw: '',
       isLoggedIn: false
     })
@@ -72,7 +72,7 @@ class App extends Component {
   handleLogIn = (e) => {
     e.preventDefault()
     axios.post('http://localhost:3001/user/login', {
-      email: this.state.email,
+      username: this.state.username,
       pw: this.state.pw
     })
     .then( response => {
@@ -88,6 +88,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Project Wayfarer</h1>
+        <h2>Sign up</h2>
         <form>
           <div>
             <label htmlFor='username'>Username</label>
@@ -99,6 +100,20 @@ class App extends Component {
             <input type='text' name='pw' onChange={this.handleInput} />
           </div>
           <button onClick={this.handleSignUp}>Sign UP</button>
+        </form>
+        {/* login form to add to App.js */}
+        <h2>Log In</h2>
+        <form>
+          <div>
+            <label htmlFor='username'>Username</label>
+            <input type='text' name='username' onChange={this.handleInput} />
+          </div>
+          <div>
+            <label htmlFor='pw'>Password</label>
+            <input type='text' name='pw' onChange={this.handleInput} />
+          </div>
+          <button onClick={this.handleLogIn}>Log In</button>
+          <button onClick={this.handleLogOut}>Log Out</button>
         </form>
       </div>
     );
