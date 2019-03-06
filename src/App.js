@@ -12,6 +12,8 @@ import SignUpForm from './components/SignUpForm';
 import ProfileContainer from './containers/ProfileContainer'
 import CitiesContainer from './containers/CitiesContainer'
 import HomeContainer from './containers/HomeContainer'
+import CreatePost from './components/CreatePost'
+import PostModal from './components/PostModal'
 
 import './App.css';
 
@@ -101,6 +103,10 @@ class App extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/cityprofile">Cities</Link></li>
             <li><Link to="/user">User Profile</Link></li>
+            <li><Link to="/createpost">Create Post</Link></li>
+            <li><Link to="/post">Post Modal</Link></li>
+          </ul>
+          <ul>
             <li><Link to="/signup">Signup</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/logout">Logout</Link></li>
@@ -151,7 +157,9 @@ class App extends Component {
           <Switch>
             <Route path='/user' component= { ProfileContainer } />
             <Route path='/cityprofile' component= { CitiesContainer } />
-            <Route path='/' component= { HomeContainer } />
+            <Route exact path='/' component= { HomeContainer } />
+            <Route path='/createpost' component= { CreatePost } />
+            <Route path='/post' component= { PostModal } />
           </Switch>
       </div>
     );
