@@ -3,7 +3,10 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import axios from 'axios'
+import axios from 'axios';
+import LogInForm from './components/LogInForm';
+import LogOut from './components/LogOut';
+import SignUpForm from './components/SignUpForm';
 import './App.css';
 
 class App extends Component {
@@ -87,34 +90,48 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Project Wayfarer</h1>
-        <h2>Sign up</h2>
-        <form>
-          <div>
-            <label htmlFor='username'>Username</label>
-            <input type='text' name='username' onChange={this.handleInput} />
-          </div>
+        <Switch>
+            <Route path='/signup'
+              render={(props) => {
+                return (
+                  <SignUpForm 
+                  isLoggedIn={this.state.isLoggedIn} 
+                  handleInput={this.handleInput} 
+                  handleSignUp={this.handleSignUp} />
+                )
+              }}
+            />
+            <Route path='/login'
+              render={(props) => {
+                return (
+                  <LogInForm 
+                  isLoggedIn={this.state.isLoggedIn} 
+                  handleInput={this.handleInput} 
+                  handleLogIn={this.handleLogIn} />
+                )
+              }}
+            />
+            <Route path='/logout'
+              render={(props) => {
+                return (
+                  <LogOut 
+                  isLoggedIn={this.state.isLoggedIn} 
+                  handleLogOut={this.handleLogOut} />
+                )
+              }}
+            />
+            
+            {/* this will be logged-in user's view of city page */}
+            {/* <Route
+              path='/'
+              render={() => {
+                return (
+                  <DogList isLoggedIn={this.state.isLoggedIn} />
+                )
+              }}
+            /> */}
 
-          <div>
-            <label htmlFor='pw'>Password</label>
-            <input type='text' name='pw' onChange={this.handleInput} />
-          </div>
-          <button onClick={this.handleSignUp}>Sign UP</button>
-        </form>
-        {/* login form to add to App.js */}
-        <h2>Log In</h2>
-        <form>
-          <div>
-            <label htmlFor='username'>Username</label>
-            <input type='text' name='username' onChange={this.handleInput} />
-          </div>
-          <div>
-            <label htmlFor='pw'>Password</label>
-            <input type='text' name='pw' onChange={this.handleInput} />
-          </div>
-          <button onClick={this.handleLogIn}>Log In</button>
-          <button onClick={this.handleLogOut}>Log Out</button>
-        </form>
+          </Switch>
       </div>
     );
   }
