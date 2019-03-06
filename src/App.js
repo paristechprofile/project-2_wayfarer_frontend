@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import {
+  Link,
   Route,
   Switch
 } from 'react-router-dom'
 import axios from 'axios';
+
 import LogInForm from './components/LogInForm';
 import LogOut from './components/LogOut';
 import SignUpForm from './components/SignUpForm';
+import ProfileContainer from './containers/ProfileContainer'
+import CitiesContainer from './containers/CitiesContainer'
+import HomeContainer from './containers/HomeContainer'
+
 import './App.css';
 
 class App extends Component {
@@ -90,6 +96,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* Temporary Nav links to make it easier to get to different components for now */}
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/cityprofile">Cities</Link></li>
+            <li><Link to="/user">User Profile</Link></li>
+            <li><Link to="/signup">Signup</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/logout">Logout</Link></li>
+          </ul>
+        </nav>
         <Switch>
             <Route path='/signup'
               render={(props) => {
@@ -131,6 +148,11 @@ class App extends Component {
               }}
             /> */}
 
+          </Switch>
+          <Switch>
+            <Route path='/user' component= { ProfileContainer } />
+            <Route path='/cityprofile' component= { CitiesContainer } />
+            <Route path='/' component= { HomeContainer } />
           </Switch>
       </div>
     );
