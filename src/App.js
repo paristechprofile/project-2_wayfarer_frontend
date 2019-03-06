@@ -63,7 +63,6 @@ class App extends Component {
 
   handleSignUp = (e) => {
     e.preventDefault()
-    console.log('meow')
     axios.post('http://localhost:3001/user/signup', 
 			{ username: this.state.username,
       	pw: this.state.pw }
