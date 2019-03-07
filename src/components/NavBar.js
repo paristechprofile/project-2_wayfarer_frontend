@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LogOut from "./LogOut";
+import { Link, Route, Switch } from "react-router-dom";
 
 export default class NavBar extends Component {
   render() {
@@ -11,8 +12,12 @@ export default class NavBar extends Component {
               Wayfarer
             </a>
             <ul class="right">
-              <li>Sign In</li>
-              <li>Sign Up</li>
+              <li>
+                <Link to="/login">Log In</Link>
+              </li>
+              <li>
+                <Link to="/signup">Sign Up</Link>
+              </li>
               {this.props.isLoggedIn ? (
                 <li>
                   <LogOut
