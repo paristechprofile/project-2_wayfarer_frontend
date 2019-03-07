@@ -98,7 +98,7 @@ class App extends Component {
         {/* Temporary Nav links to make it easier to get to different components for now */}
         <NavBar brand="logo" right isLoggedIn={this.state.isLoggedIn} />
 
-        <ul>
+        <ul className="temp-ul">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -115,7 +115,7 @@ class App extends Component {
             <Link to="/post">Post Modal</Link>
           </li>
         </ul>
-        <ul>
+        <ul className="temp-ul">
           <li>
             <Link to="/signup">Signup</Link>
           </li>
