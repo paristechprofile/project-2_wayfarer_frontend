@@ -1,68 +1,73 @@
-import React, { Component } from 'react';
-import {
-  Link,
-  Route,
-  Switch
-} from 'react-router-dom'
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link, Route, Switch } from "react-router-dom";
+import axios from "axios";
+import NavBar from "./components/NavBar";
 
-import LogInForm from './components/LogInForm';
-import LogOut from './components/LogOut';
-import SignUpForm from './components/SignUpForm';
-import ProfileContainer from './containers/ProfileContainer'
-import CitiesContainer from './containers/CitiesContainer'
-import HomeContainer from './containers/HomeContainer'
-import CreatePost from './components/CreatePost'
-import PostModal from './components/PostModal'
+import LogInForm from "./components/LogInForm";
+import LogOut from "./components/LogOut";
+import SignUpForm from "./components/SignUpForm";
+import ProfileContainer from "./containers/ProfileContainer";
+import CitiesContainer from "./containers/CitiesContainer";
+import HomeContainer from "./containers/HomeContainer";
+import CreatePost from "./components/CreatePost";
+import PostModal from "./components/PostModal";
 
-import './App.css';
+import "./App.css";
 
 class App extends Component {
   state = {
-    username: '',
-    pw: '',
+    username: "",
+    pw: "",
     isLoggedIn: false,
     user: null
-  }
+  };
 
-  componentDidMount () {
+  componentDidMount() {
     if (localStorage.token) {
+<<<<<<< HEAD
       axios(
         { 
         method: 'get', 
         url: `http://localhost:3001/user`, 
         headers: { authorization: `Bearer ${localStorage.token}` } 
+=======
+      axios({
+        method: "get",
+        url: `http://localhost:3001/`,
+        headers: { authorization: `Bearer ${localStorage.token}` }
+>>>>>>> fdec40c55a7dda282b9993d9c375138d7f7196dc
       })
-      .then( response => {
-        console.log(response)
+        .then(response => {
+          console.log(response);
           this.setState({
             isLoggedIn: true,
             user: response.data
-          })
-      })
-      .catch(err => console.log(err))
+          });
+        })
+        .catch(err => console.log(err));
     } else {
       this.setState({
         isLoggedIn: false
-      })
+      });
     }
   }
 
   handleLogOut = () => {
     this.setState({
-      username: '',
-      pw: '',
+      username: "",
+      pw: "",
       isLoggedIn: false
-    })
-    localStorage.clear()
-  }
+    });
+    localStorage.clear();
+  };
 
-  handleInput = (e) => {
+  handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
+<<<<<<< HEAD
   handleSignUp = (e) => {
     e.preventDefault()
     axios.post('http://localhost:3001/user/signup', 
@@ -75,10 +80,26 @@ class App extends Component {
           this.setState({
             isLoggedIn: true
           })
+=======
+  handleSignUp = e => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/user/signup", {
+        username: this.state.username,
+        pw: this.state.pw
+>>>>>>> fdec40c55a7dda282b9993d9c375138d7f7196dc
       })
-      .catch(err => console.log(err))
-  }
+      .then(response => {
+        console.log(response);
+        localStorage.token = response.data.signedJwt;
+        this.setState({
+          isLoggedIn: true
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
+<<<<<<< HEAD
   handleLogIn = (e) => {
     e.preventDefault()
     axios.post('http://localhost:3001/user/login', {
@@ -89,62 +110,98 @@ class App extends Component {
       localStorage.token = response.data.signedJwt
       this.setState({
         isLoggedIn: true
+=======
+  handleLogIn = e => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/user/login", {
+        username: this.state.username,
+        pw: this.state.pw
+>>>>>>> fdec40c55a7dda282b9993d9c375138d7f7196dc
       })
-    })
-    .catch(err => console.log(err))
-  }
+      .then(response => {
+        localStorage.token = response.data.signedJwt;
+        this.setState({
+          isLoggedIn: true
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
       <div className="App">
         {/* Temporary Nav links to make it easier to get to different components for now */}
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/cityprofile">Cities</Link></li>
-            <li><Link to="/user/profile">User Profile</Link></li>
-            <li><Link to="/createpost">Create Post</Link></li>
-            <li><Link to="/post">Post Modal</Link></li>
-          </ul>
-          <ul>
-            <li><Link to="/signup">Signup</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/logout">Logout</Link></li>
-          </ul>
-        </nav>
+        <NavBar brand="logo" right isLoggedIn={this.state.isLoggedIn} />
+
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/cityprofile">Cities</Link>
+          </li>
+          <li>
+            <Link to="/user/profile">User Profile</Link>
+          </li>
+          <li>
+            <Link to="/createpost">Create Post</Link>
+          </li>
+          <li>
+            <Link to="/post">Post Modal</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link to="/signup">Signup</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
+
         <Switch>
-            <Route path='/signup'
-              render={(props) => {
-                return (
-                  <SignUpForm 
-                  isLoggedIn={this.state.isLoggedIn} 
-                  handleInput={this.handleInput} 
-                  handleSignUp={this.handleSignUp} />
-                )
-              }}
-            />
-            <Route path='/login'
-              render={(props) => {
-                return (
-                  <LogInForm 
-                  isLoggedIn={this.state.isLoggedIn} 
-                  handleInput={this.handleInput} 
-                  handleLogIn={this.handleLogIn} />
-                )
-              }}
-            />
-            <Route path='/logout'
-              render={(props) => {
-                return (
-                  <LogOut 
-                  isLoggedIn={this.state.isLoggedIn} 
-                  handleLogOut={this.handleLogOut} />
-                )
-              }}
-            />
-            
-            {/* this will be logged-in user's view of city page */}
-            {/* <Route
+          <Route
+            path="/signup"
+            render={props => {
+              return (
+                <SignUpForm
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleInput={this.handleInput}
+                  handleSignUp={this.handleSignUp}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/login"
+            render={props => {
+              return (
+                <LogInForm
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleInput={this.handleInput}
+                  handleLogIn={this.handleLogIn}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/logout"
+            render={props => {
+              return (
+                <LogOut
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleLogOut={this.handleLogOut}
+                />
+              );
+            }}
+          />
+
+          {/* this will be logged-in user's view of city page */}
+          {/* <Route
               path='/'
               render={() => {
                 return (
@@ -152,15 +209,14 @@ class App extends Component {
                 )
               }}
             /> */}
-
-          </Switch>
-          <Switch>
-            <Route path='/user' component= { ProfileContainer } />
-            <Route path='/cityprofile' component= { CitiesContainer } />
-            <Route exact path='/' component= { HomeContainer } />
-            <Route path='/createpost' component= { CreatePost } />
-            <Route path='/post' component= { PostModal } />
-          </Switch>
+        </Switch>
+        <Switch>
+          <Route path="/user" component={ProfileContainer} />
+          <Route path="/cityprofile" component={CitiesContainer} />
+          <Route exact path="/" component={HomeContainer} />
+          <Route path="/createpost" component={CreatePost} />
+          <Route path="/post" component={PostModal} />
+        </Switch>
       </div>
     );
   }
