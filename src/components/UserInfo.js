@@ -5,7 +5,7 @@ export default class UserInfo extends Component {
     return (
       <div>
         <h2>List User Information Here</h2>
-        <img class="temp-profile-pic" src="../../images/blankuserimage.jpg" />
+        <img class="temp-profile-pic" src="../../images/blankuserimage.jpg" alt="Placeholder"/>
         <ul className="user-info">
           <li>Name: firstName lastName</li>
           <li>City: currentCity</li>

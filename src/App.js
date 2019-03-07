@@ -96,9 +96,11 @@ class App extends Component {
     return (
       <div className="App">
         {/* Temporary Nav links to make it easier to get to different components for now */}
-        <NavBar brand="logo" right isLoggedIn={this.state.isLoggedIn} />
+        <NavBar brand="logo" right 
+          isLoggedIn={this.state.isLoggedIn}
+          handleLogOut={this.handleLogOut} />
 
-        <ul>
+        <ul className="temp-ul">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -113,17 +115,6 @@ class App extends Component {
           </li>
           <li>
             <Link to="/post">Post Modal</Link>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <Link to="/signup">Signup</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
           </li>
         </ul>
 
@@ -148,17 +139,6 @@ class App extends Component {
                   isLoggedIn={this.state.isLoggedIn}
                   handleInput={this.handleInput}
                   handleLogIn={this.handleLogIn}
-                />
-              );
-            }}
-          />
-          <Route
-            path="/logout"
-            render={props => {
-              return (
-                <LogOut
-                  isLoggedIn={this.state.isLoggedIn}
-                  handleLogOut={this.handleLogOut}
                 />
               );
             }}
