@@ -3,27 +3,6 @@ import LogOut from "./LogOut";
 import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
-
-  loginButton = (props) => {
-    return (
-      <button onClick={props.onClick}>
-        Login
-      </button>
-    );
-  };
-
-  logoutButton = (props) => {
-    return (
-      <button onClick={props.onClick}>
-        Logout
-      </button>
-    );
-  };
-
-  handleLogoutClick = () => {
-    this.setState({isLoggedIn: false});
-  };
-
   render() {
     return (
       <div>
