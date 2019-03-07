@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, Redirect} from "react-router-dom";
 import axios from "axios";
 import NavBar from "./components/NavBar";
 
@@ -23,7 +23,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.token) {
+      if (localStorage.token) {
       axios({
         method: "get",
         url: `http://localhost:3001/`,
@@ -121,15 +121,17 @@ class App extends Component {
         <Switch>
           <Route
             path="/signup"
-            render={props => {
-              return (
+            render={() => (
+              this.state.loggedIn ? (
+                <Redirect to="/user/profile" />
+              ) : (
                 <SignUpForm
                   isLoggedIn={this.state.isLoggedIn}
                   handleInput={this.handleInput}
                   handleSignUp={this.handleSignUp}
                 />
-              );
-            }}
+              )
+            )}
           />
           <Route
             path="/login"
@@ -139,6 +141,17 @@ class App extends Component {
                   isLoggedIn={this.state.isLoggedIn}
                   handleInput={this.handleInput}
                   handleLogIn={this.handleLogIn}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/logout"
+            render={props => {
+              return (
+                <LogOut
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleLogOut={this.handleLogOut}
                 />
               );
             }}
@@ -155,7 +168,7 @@ class App extends Component {
             /> */}
         </Switch>
         <Switch>
-          <Route path="/user" component={ProfileContainer} />
+          <Route path="/user/profile" component={ProfileContainer} />
           <Route path="/cityprofile" component={CitiesContainer} />
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
