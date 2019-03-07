@@ -26,7 +26,7 @@ class App extends Component {
       if (localStorage.token) {
       axios({
         method: "get",
-        url: `http://localhost:3001/`,
+        url: `http://localhost:3001/user`,
         headers: { authorization: `Bearer ${localStorage.token}` }
       })
         .then(response => {
@@ -95,7 +95,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* Temporary Nav links to make it easier to get to different components for now */}
         <NavBar brand="logo" right 
           isLoggedIn={this.state.isLoggedIn}
           handleLogOut={this.handleLogOut} />
@@ -157,17 +156,6 @@ class App extends Component {
             }}
           />
 
-          {/* this will be logged-in user's view of city page */}
-          {/* <Route
-              path='/'
-              render={() => {
-                return (
-                  <DogList isLoggedIn={this.state.isLoggedIn} />
-                )
-              }}
-            /> */}
-        </Switch>
-        <Switch>
           <Route path="/user/profile" component={ProfileContainer} />
           <Route path="/cityprofile" component={CitiesContainer} />
           <Route exact path="/" component={HomeContainer} />
