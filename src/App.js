@@ -30,7 +30,7 @@ class App extends Component {
       axios(
         { 
         method: 'get', 
-        url: `http://localhost:3001/`, 
+        url: `http://localhost:3001/user`, 
         headers: { authorization: `Bearer ${localStorage.token}` } 
       })
       .then( response => {
@@ -65,7 +65,7 @@ class App extends Component {
 
   handleSignUp = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3001/signup', 
+    axios.post('http://localhost:3001/user/signup', 
 			{ username: this.state.username,
       	pw: this.state.pw }
 			)
@@ -81,7 +81,7 @@ class App extends Component {
 
   handleLogIn = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3001/login', {
+    axios.post('http://localhost:3001/user/login', {
       username: this.state.username,
       pw: this.state.pw
     })
