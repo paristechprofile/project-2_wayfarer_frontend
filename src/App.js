@@ -24,18 +24,10 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.token) {
-<<<<<<< HEAD
-      axios(
-        { 
-        method: 'get', 
-        url: `http://localhost:3001/user`, 
-        headers: { authorization: `Bearer ${localStorage.token}` } 
-=======
       axios({
         method: "get",
         url: `http://localhost:3001/`,
         headers: { authorization: `Bearer ${localStorage.token}` }
->>>>>>> fdec40c55a7dda282b9993d9c375138d7f7196dc
       })
         .then(response => {
           console.log(response);
@@ -67,27 +59,12 @@ class App extends Component {
     });
   };
 
-<<<<<<< HEAD
-  handleSignUp = (e) => {
-    e.preventDefault()
-    axios.post('http://localhost:3001/user/signup', 
-			{ username: this.state.username,
-      	pw: this.state.pw }
-			)
-      .then( response => {
-        console.log(response)
-        localStorage.token = response.data.signedJwt
-          this.setState({
-            isLoggedIn: true
-          })
-=======
   handleSignUp = e => {
     e.preventDefault();
     axios
       .post("http://localhost:3001/user/signup", {
         username: this.state.username,
         pw: this.state.pw
->>>>>>> fdec40c55a7dda282b9993d9c375138d7f7196dc
       })
       .then(response => {
         console.log(response);
@@ -99,25 +76,12 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-<<<<<<< HEAD
-  handleLogIn = (e) => {
-    e.preventDefault()
-    axios.post('http://localhost:3001/user/login', {
-      username: this.state.username,
-      pw: this.state.pw
-    })
-    .then( response => {
-      localStorage.token = response.data.signedJwt
-      this.setState({
-        isLoggedIn: true
-=======
   handleLogIn = e => {
     e.preventDefault();
     axios
       .post("http://localhost:3001/user/login", {
         username: this.state.username,
         pw: this.state.pw
->>>>>>> fdec40c55a7dda282b9993d9c375138d7f7196dc
       })
       .then(response => {
         localStorage.token = response.data.signedJwt;
