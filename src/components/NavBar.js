@@ -11,16 +11,15 @@ export default class NavBar extends Component {
             <a href="/" className="brand-logo left">
               Wayfarer
             </a>
-
-              {this.props.isLoggedIn ? (
-                <ul className="right">
-                  <li>
-                    <LogOut
-                      isLoggedIn={this.props.isLoggedIn}
-                      handleLogOut={this.props.handleLogOut}
-                      />
-                  </li>
-                </ul>
+            {this.props.isLoggedIn ? (
+              <ul className="right">
+                <li>
+                  <LogOut
+                    isLoggedIn={this.props.isLoggedIn}
+                    handleLogOut={this.props.handleLogOut}
+                    />
+                </li>
+              </ul>
               ) : (
                 <ul className="right">
                   <li>
