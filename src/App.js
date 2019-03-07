@@ -117,17 +117,6 @@ class App extends Component {
             <Link to="/post">Post Modal</Link>
           </li>
         </ul>
-        <ul className="temp-ul">
-          <li>
-            <Link to="/signup">Signup</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
-          </li>
-        </ul>
 
         <Switch>
           <Route
@@ -150,17 +139,6 @@ class App extends Component {
                   isLoggedIn={this.state.isLoggedIn}
                   handleInput={this.handleInput}
                   handleLogIn={this.handleLogIn}
-                />
-              );
-            }}
-          />
-          <Route
-            path="/logout"
-            render={props => {
-              return (
-                <LogOut
-                  isLoggedIn={this.state.isLoggedIn}
-                  handleLogOut={this.handleLogOut}
                 />
               );
             }}
