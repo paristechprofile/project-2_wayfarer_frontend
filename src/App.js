@@ -96,7 +96,9 @@ class App extends Component {
     return (
       <div className="App">
         {/* Temporary Nav links to make it easier to get to different components for now */}
-        <NavBar brand="logo" right isLoggedIn={this.state.isLoggedIn} />
+        <NavBar brand="logo" right 
+          isLoggedIn={this.state.isLoggedIn}
+          handleLogOut={this.handleLogOut} />
 
         <ul className="temp-ul">
           <li>
