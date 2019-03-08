@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 class SignUpForm extends Component {
+    
+    handleSignUp = (e) => {
+        console.log('hellooooo')
+        this.props.handleSignUp(e);
+        this.props.onRequestClose();
+    }
+
     render() {
         return (
             <div>
@@ -15,7 +22,7 @@ class SignUpForm extends Component {
                     <label htmlFor='pw'>Password</label>
                     <input type='text' name='pw' onChange={this.props.handleInput} />
                     </div>
-                    <button onClick={this.props.handleSignUp}>Sign UP</button>
+                    <button onClick={this.handleSignUp}>Sign UP</button>
                 </form>
             </div>
         );
