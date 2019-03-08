@@ -11,6 +11,7 @@ import CitiesContainer from "./containers/CitiesContainer";
 import HomeContainer from "./containers/HomeContainer";
 import CreatePost from "./components/CreatePost";
 import PostModal from "./components/PostModal";
+// import CityList from "./components/CityList"
 
 import "./App.css";
 
@@ -27,10 +28,14 @@ const customStyles = {
 Modal.setAppElement("body");
 class App extends Component {
   state = {
-    username: "",
-    pw: "",
-    isLoggedIn: false,
-    user: null
+    username: '',
+    pw: '',
+    image: '',
+    firstName: '',
+    lastName: '',
+    currentCity: '',
+    joinDate: '',
+    isLoggedIn: false 
   };
 
   componentDidMount() {
@@ -219,8 +224,27 @@ class App extends Component {
             }}
           /> */}
 
-          <Route path="/user/profile" component={ProfileContainer} />
-          <Route path="/cityprofile" component={CitiesContainer} />
+          {/* this will be logged-in user's view of city page */}
+          {/* <Route
+              path='/'
+              render={() => {
+                return (
+                  <DogList isLoggedIn={this.state.isLoggedIn} />
+                )
+              }}
+            /> */}
+
+          <Route path="/user" component={ProfileContainer} />
+          {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
+          <Route path="/cities" component={CitiesContainer} />
+          {/* <Route
+              path='/'
+              render={() => {
+                return (
+                  <CityList isLoggedIn={this.state.isLoggedIn} />
+                )
+              }}
+            /> */}
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />

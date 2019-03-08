@@ -13,7 +13,7 @@ export default class UserInfo extends Component {
   
     axios.get("http://localhost:3001/user", config)
     .then(res => {
-      console.log(res);
+      // console.log(res);
       let grabbedUsername = res.data[0].username;
       console.log(grabbedUsername);
       this.setState({
@@ -31,8 +31,10 @@ export default class UserInfo extends Component {
     const userInfoProps = userInfo.length ? (
       userInfo.map(userInfo => {
         return (
-          <div>
-            <p>{userInfo.username}</p>
+          <div className='userInfo'>
+            <h2>{userInfo.username}</h2>
+            <h6></h6>
+            On their public profile page, see their name, the current city they have set in their profile, and their join date.
           </div>
           )
       })
