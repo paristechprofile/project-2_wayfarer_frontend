@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LogOut from "./LogOut";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import SignUpForm from './SignUpForm'
 
@@ -69,7 +69,7 @@ export default class NavBar extends Component {
                   </a>
                 </li>
                 <li>
-                  <a onClick={this.openModal}>Sign Up</a>
+                  <button onClick={this.openModal}>Sign Up</button>
                   <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
