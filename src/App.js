@@ -121,7 +121,7 @@ class App extends Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
+    // this.subtitle.style.color = "#000";
   }
 
   closeModal() {
@@ -136,6 +136,8 @@ class App extends Component {
           right
           isLoggedIn={this.state.isLoggedIn}
           handleLogOut={this.handleLogOut}
+          handleInput={this.handleInput}
+          handleSignUp={this.handleSignUp}
         />
         <ul className="temp-ul">
           <li>
@@ -154,25 +156,23 @@ class App extends Component {
             <Link to="/post">Post Modal</Link>
           </li>
         </ul>
-        <button onClick={this.openModal}>Open Modal</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
-        </Modal>
+
+        {/* <button onClick={this.openModal}>Sign Up</button>
+                  <Modal
+                    isOpen={this.state.modalIsOpen}
+                    onAfterOpen={this.afterOpenModal}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                  >
+                  <button onClick={this.closeModal}>X</button>
+                    <SignUpForm
+                            isLoggedIn={this.state.isLoggedIn}
+                            handleInput={this.handleInput}
+                            handleSignUp={this.handleSignUp}
+                          />
+                  </Modal> */}
+
 
         {/* <a href="#testing" className="btn modal-trigger">
           Testing
@@ -207,7 +207,7 @@ class App extends Component {
               );
             }}
           />
-          <Route
+          {/* <Route
             path="/logout"
             render={props => {
               return (
@@ -217,7 +217,7 @@ class App extends Component {
                 />
               );
             }}
-          />
+          /> */}
 
           <Route path="/user/profile" component={ProfileContainer} />
           <Route path="/cityprofile" component={CitiesContainer} />
