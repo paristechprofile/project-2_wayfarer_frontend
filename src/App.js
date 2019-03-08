@@ -4,7 +4,6 @@ import axios from "axios";
 import NavBar from "./components/NavBar";
 import Modal from "react-modal";
 import LogInForm from "./components/LogInForm";
-import LogOut from "./components/LogOut";
 import SignUpForm from "./components/SignUpForm";
 import ProfileContainer from "./containers/ProfileContainer";
 import CitiesContainer from "./containers/CitiesContainer";
@@ -15,16 +14,16 @@ import PostModal from "./components/PostModal";
 
 import "./App.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
+// const customStyles = {
+//   content: {
+//     top: "50%",
+//     left: "50%",
+//     right: "auto",
+//     bottom: "auto",
+//     marginRight: "-50%",
+//     transform: "translate(-50%, -50%)"
+//   }
+// };
 Modal.setAppElement("body");
 class App extends Component {
   state = {
@@ -46,7 +45,6 @@ class App extends Component {
         headers: { authorization: `Bearer ${localStorage.token}` }
       })
         .then(response => {
-          console.log(response);
           this.setState({
             isLoggedIn: true,
             user: response.data
@@ -162,30 +160,6 @@ class App extends Component {
             <Link to="/post">Post Modal</Link>
           </li>
         </ul>
-
-        {/* <button onClick={this.openModal}>Sign Up</button>
-                  <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                  >
-                  <button onClick={this.closeModal}>X</button>
-                    <SignUpForm
-                            isLoggedIn={this.state.isLoggedIn}
-                            handleInput={this.handleInput}
-                            handleSignUp={this.handleSignUp}
-                          />
-                  </Modal> */}
-
-
-        {/* <a href="#testing" className="btn modal-trigger">
-          Testing
-        </a>
-        <div className="modal" id="testing">
-          <div className="modal-content">my little pony</div>
-        </div> */}
         <Switch>
           <Route
             path="/signup"
@@ -213,6 +187,7 @@ class App extends Component {
               );
             }}
           />
+<<<<<<< HEAD
           <Route
             path="/logout"
             render={props => {
@@ -224,6 +199,8 @@ class App extends Component {
               );
             }}
           />
+=======
+>>>>>>> 86aa39982d4f700902b84edce08f04025067d8a5
 
           <Route path="/user/profile" component={ProfileContainer} />
           <Route path="/cityprofile" component={CitiesContainer} />

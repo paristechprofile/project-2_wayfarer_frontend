@@ -23,13 +23,16 @@ class Posts extends Component {
   }
 
   render () {
+    console.log(this.state.post);
     return (
       <div className='post-preview'>
-        <h3>{this.state.post.author}</h3>
-        <h3>{this.state.post.date}</h3>
-        <p>{this.state.post.text}</p>
-        {/* {this.props.isLoggedIn ? <h4>Age: {this.state.dog.age}</h4> : ''}
-        {this.props.isLoggedIn ? <h4>Walk Frequency: {this.state.dog.frequency}</h4> : ''} */}
+        <div className = "row">
+          <h5>{this.state.post.author.firstName}</h5>
+          <h5>{this.state.post.date}</h5>
+          <p>{this.state.post.text}</p>
+          {/* {this.props.isLoggedIn ? <h4>Age: {this.state.dog.age}</h4> : ''}
+          {this.props.isLoggedIn ? <h4>Walk Frequency: {this.state.dog.frequency}</h4> : ''} */}
+        </div>
       </div>
     )
   }
