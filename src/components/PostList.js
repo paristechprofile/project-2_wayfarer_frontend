@@ -10,7 +10,7 @@ export default class PostList extends Component {
   }
   
   componentDidMount () {
-    let cityId = '5c81ee0e6548fc2a7f2d076b'
+    let cityId = '5c829e9cb9ec7b2d2010c344'
     // router.get('/:id/posts', controllers.cities.getPosts);
     console.log('mounted posts')
     axios.get(`http://localhost:3001/cities/${cityId}/posts`)
