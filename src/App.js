@@ -69,11 +69,11 @@ class App extends Component {
     localStorage.clear();
   };
 
-  handleInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
+  // handleInput = e => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
   handleSignUp = e => {
     e.preventDefault();
@@ -143,6 +143,7 @@ class App extends Component {
           handleLogOut={this.handleLogOut}
           handleInput={this.handleInput}
           handleSignUp={this.handleSignUp}
+          handleLogIn={this.handleLogIn}
         />
         <ul className="temp-ul">
           <li>
@@ -212,7 +213,7 @@ class App extends Component {
               );
             }}
           />
-          {/* <Route
+          <Route
             path="/logout"
             render={props => {
               return (
@@ -222,29 +223,10 @@ class App extends Component {
                 />
               );
             }}
-          /> */}
+          />
 
-          {/* this will be logged-in user's view of city page */}
-          {/* <Route
-              path='/'
-              render={() => {
-                return (
-                  <DogList isLoggedIn={this.state.isLoggedIn} />
-                )
-              }}
-            /> */}
-
-          <Route path="/user" component={ProfileContainer} />
-          {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
-          <Route path="/cities" component={CitiesContainer} />
-          {/* <Route
-              path='/'
-              render={() => {
-                return (
-                  <CityList isLoggedIn={this.state.isLoggedIn} />
-                )
-              }}
-            /> */}
+          <Route path="/user/profile" component={ProfileContainer} />
+          <Route path="/cityprofile" component={CitiesContainer} />
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />
