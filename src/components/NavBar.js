@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import LogOut from "./LogOut";
-// import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
@@ -19,31 +18,6 @@ const customStyles = {
 Modal.setAppElement("body");
 
 export default class NavBar extends Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      modalIsOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = "#000";
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
 
   render() {
     return (
@@ -65,6 +39,7 @@ export default class NavBar extends Component {
             ) : (
               <ul className="right">
                 <li>
+<<<<<<< HEAD
                   <button onClick={this.openModal}>Log In</button>
                   <Modal
                     isOpen={this.state.modalIsOpen}
@@ -84,20 +59,28 @@ export default class NavBar extends Component {
                 </li>
                 <li>
                   <button onClick={this.openModal}>Sign Up</button>
+=======
+                  <button onClick={this.props.openModal}>Log In/Sign Up</button>
+>>>>>>> tiffany
                   <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
+                    isOpen={this.props.modalIsOpen}
+                    onAfterOpen={this.props.afterOpenModal}
+                    onRequestClose={this.props.closeModal}
                     style={customStyles}
-                    contentLabel="Example Modal"
+                    contentLabel="Sign Up Modal"
                   >
-                  <button onClick={this.closeModal}>X</button>
+                    <button onClick={this.props.closeModal}>X</button>
+                    <LogInForm 
+                      isLoggedIn={this.props.isLoggedIn} 
+                      handleInput={this.props.handleInput} 
+                      handleLogIn={this.props.handleLogIn}
+                      />
                     <SignUpForm
-                            isLoggedIn={this.state.isLoggedIn}
-                            handleInput={this.props.handleInput}
-                            handleSignUp={this.props.handleSignUp}
-                            onRequestClose={this.closeModal}
-                          />
+                      isLoggedIn={this.props.isLoggedIn}
+                      handleInput={this.props.handleInput}
+                      handleSignUp={this.props.handleSignUp}
+                      onRequestClose={this.props.closeModal}
+                    />
                   </Modal>
                 </li>
               </ul>
