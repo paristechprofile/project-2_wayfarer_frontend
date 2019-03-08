@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import HomePgArticles from "../components/HomePgArticles";
 
 export default class About extends Component {
   render() {
     return (
       <div>
-        <h3>Insert About Us articles for Wayfarer here.</h3>
+        <HomePgArticles />
       </div>
-    )
+    );
   }
 }

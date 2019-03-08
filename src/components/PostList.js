@@ -13,9 +13,13 @@ export default class PostList extends Component {
     let cityId = "5c82e312232f2b049cfa6fa8"
     // router.get('/:id/posts', controllers.cities.getPosts);
     console.log('mounted posts')
-    axios.get(`http://localhost:3001/cities/${cityId}/posts`)
+    axios({
+      method: "get",
+        url: `http://localhost:3001/cities/${cityId}/posts`,
+        headers: { authorization: `Bearer ${localStorage.token}` }
+    })
       .then(response => {
-        console.log('AXIOS RESPOSE:', response);
+        console.log('AXIOS RESPONSE:', response);
         this.setState({
           posts: response.data
         })

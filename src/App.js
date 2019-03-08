@@ -14,27 +14,31 @@ import PostModal from "./components/PostModal";
 
 import "./App.css";
 
-// const customStyles = {
-//   content: {
-//     top: "50%",
-//     left: "50%",
-//     right: "auto",
-//     bottom: "auto",
-//     marginRight: "-50%",
-//     transform: "translate(-50%, -50%)"
-//   }
-// };
 Modal.setAppElement("body");
 class App extends Component {
   state = {
-    username: '',
-    pw: '',
-    image: '',
-    firstName: '',
-    lastName: '',
-    currentCity: '',
-    joinDate: '',
-    isLoggedIn: false 
+    username: "",
+    pw: "",
+    image: "",
+    firstName: "",
+    lastName: "",
+    currentCity: "",
+    joinDate: "",
+    isLoggedIn: false,
+    modalIsOpen: false
+  };
+
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
+
+  afterOpenModal = () => {
+    // references are now sync'd and can be accessed.
+    // this.subtitle.style.color = "#000";
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
   };
 
   componentDidMount() {
@@ -106,41 +110,20 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  constructor() {
-    super();
-
-    this.state = {
-      modalIsOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = "#000";
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
   render() {
     return (
       <div className="App">
         <NavBar
           brand="logo"
-          right
           isLoggedIn={this.state.isLoggedIn}
           handleLogOut={this.handleLogOut}
           handleInput={this.handleInput}
           handleSignUp={this.handleSignUp}
+          modalIsOpen={this.state.modalIsOpen}
+          afterOpenModal={this.afterOpenModal}
+          closeModal={this.closeModal}
+          openModal={this.openModal}
+          handleLogIn={this.handleLogIn}
         />
         <ul className="temp-ul">
           <li>
@@ -187,17 +170,18 @@ class App extends Component {
             }}
           />
 
-          <Route path="/user" component={ProfileContainer} />
-          {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
+          <Route
+            path="/user/profile"
+            render={props => {
+              return (
+                <ProfileContainer
+                  isLoggedIn={this.state.isLoggedIn}
+                  user={this.state.user}
+                />
+              );
+            }}
+          />
           <Route path="/cities" component={CitiesContainer} />
-          {/* <Route
-              path='/'
-              render={() => {
-                return (
-                  <CityList isLoggedIn={this.state.isLoggedIn} />
-                )
-              }}
-            /> */}
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />
