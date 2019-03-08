@@ -16,10 +16,14 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    username: "",
-    pw: "",
-    isLoggedIn: false,
-    user: null
+    username: '',
+    pw: '',
+    image: '',
+    firstName: '',
+    lastName: '',
+    currentCity: '',
+    joinDate: '',
+    isLoggedIn: false 
   };
 
   componentDidMount() {
