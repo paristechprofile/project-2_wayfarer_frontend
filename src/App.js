@@ -187,7 +187,17 @@ class App extends Component {
             }}
           />
 
-          <Route path="/user" component={ProfileContainer} />
+          <Route 
+            path="/user" 
+            render={props =>{
+              return (
+                <ProfileContainer
+                  isLoggedIn={this.state.isLoggedIn}
+                  user={this.state.user}
+                />
+              )
+            }} 
+          />
           {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
           <Route path="/cities" component={CitiesContainer} />
           {/* <Route
