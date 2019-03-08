@@ -11,6 +11,7 @@ import CitiesContainer from "./containers/CitiesContainer";
 import HomeContainer from "./containers/HomeContainer";
 import CreatePost from "./components/CreatePost";
 import PostModal from "./components/PostModal";
+// import CityList from "./components/CityList"
 
 import "./App.css";
 
@@ -153,10 +154,18 @@ class App extends Component {
                 )
               }}
             /> */}
-        </Switch>
-        <Switch>
+
           <Route path="/user" component={ProfileContainer} />
-          <Route path="/cityprofile" component={CitiesContainer} />
+          {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
+          <Route path="/cities" component={CitiesContainer} />
+          {/* <Route
+              path='/'
+              render={() => {
+                return (
+                  <CityList isLoggedIn={this.state.isLoggedIn} />
+                )
+              }}
+            /> */}
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />
