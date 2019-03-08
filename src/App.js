@@ -212,27 +212,6 @@ class App extends Component {
               );
             }}
           />
-          {/* <Route
-            path="/logout"
-            render={props => {
-              return (
-                <LogOut
-                  isLoggedIn={this.state.isLoggedIn}
-                  handleLogOut={this.handleLogOut}
-                />
-              );
-            }}
-          /> */}
-
-          {/* this will be logged-in user's view of city page */}
-          {/* <Route
-              path='/'
-              render={() => {
-                return (
-                  <DogList isLoggedIn={this.state.isLoggedIn} />
-                )
-              }}
-            /> */}
 
           <Route path="/user" component={ProfileContainer} />
           {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
