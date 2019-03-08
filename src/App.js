@@ -27,14 +27,14 @@ import "./App.css";
 Modal.setAppElement("body");
 class App extends Component {
   state = {
-    username: '',
-    pw: '',
-    image: '',
-    firstName: '',
-    lastName: '',
-    currentCity: '',
-    joinDate: '',
-    isLoggedIn: false 
+    username: "",
+    pw: "",
+    image: "",
+    firstName: "",
+    lastName: "",
+    currentCity: "",
+    joinDate: "",
+    isLoggedIn: false
   };
 
   componentDidMount() {
