@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link, Route, Switch, Redirect} from "react-router-dom";
+import { Link, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 import NavBar from "./components/NavBar";
-
+import Modal from "react-modal";
 import LogInForm from "./components/LogInForm";
 import LogOut from "./components/LogOut";
 import SignUpForm from "./components/SignUpForm";
@@ -11,9 +11,21 @@ import CitiesContainer from "./containers/CitiesContainer";
 import HomeContainer from "./containers/HomeContainer";
 import CreatePost from "./components/CreatePost";
 import PostModal from "./components/PostModal";
+// import CityList from "./components/CityList"
 
 import "./App.css";
 
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
+Modal.setAppElement("body");
 class App extends Component {
   state = {
     username: '',
@@ -27,7 +39,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-      if (localStorage.token) {
+    if (localStorage.token) {
       axios({
         method: "get",
         url: `http://localhost:3001/user`,
@@ -96,13 +108,40 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = "#f00";
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
   render() {
     return (
       <div className="App">
-        <NavBar brand="logo" right 
+        <NavBar
+          brand="logo"
+          right
           isLoggedIn={this.state.isLoggedIn}
-          handleLogOut={this.handleLogOut} />
-
+          handleLogOut={this.handleLogOut}
+        />
         <ul className="temp-ul">
           <li>
             <Link to="/">Home</Link>
@@ -120,11 +159,36 @@ class App extends Component {
             <Link to="/post">Post Modal</Link>
           </li>
         </ul>
+        <button onClick={this.openModal}>Open Modal</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
+          <button onClick={this.closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
 
+        {/* <a href="#testing" className="btn modal-trigger">
+          Testing
+        </a>
+        <div className="modal" id="testing">
+          <div className="modal-content">my little pony</div>
+        </div> */}
         <Switch>
           <Route
             path="/signup"
-            render={() => (
+            render={() =>
               this.state.loggedIn ? (
                 <Redirect to="/user/profile" />
               ) : (
@@ -134,7 +198,7 @@ class App extends Component {
                   handleSignUp={this.handleSignUp}
                 />
               )
-            )}
+            }
           />
           <Route
             path="/login"
@@ -160,8 +224,27 @@ class App extends Component {
             }}
           />
 
-          <Route path="/user/profile" component={ProfileContainer} />
-          <Route path="/cityprofile" component={CitiesContainer} />
+          {/* this will be logged-in user's view of city page */}
+          {/* <Route
+              path='/'
+              render={() => {
+                return (
+                  <DogList isLoggedIn={this.state.isLoggedIn} />
+                )
+              }}
+            /> */}
+
+          <Route path="/user" component={ProfileContainer} />
+          {/* <Route path="/cityprofile" component={CitiesContainer} /> */}
+          <Route path="/cities" component={CitiesContainer} />
+          {/* <Route
+              path='/'
+              render={() => {
+                return (
+                  <CityList isLoggedIn={this.state.isLoggedIn} />
+                )
+              }}
+            /> */}
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />

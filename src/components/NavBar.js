@@ -17,19 +17,23 @@ export default class NavBar extends Component {
                   <LogOut
                     isLoggedIn={this.props.isLoggedIn}
                     handleLogOut={this.props.handleLogOut}
-                    />
+                  />
                 </li>
               </ul>
-              ) : (
-                <ul className="right">
-                  <li>
-                    <Link to="/login">Log In</Link>
-                  </li>
-                  <li>
-                    <Link to="/signup">Sign Up</Link>
-                  </li>
-                </ul>
-              )}
+            ) : (
+              <ul className="right">
+                <li>
+                  <a href="#loginBtn" className="modal-trigger">
+                    Login
+                  </a>
+                </li>
+                <li>
+                  <a href="#signUpBtn" className="modal-trigger">
+                    Sign Up
+                  </a>
+                </li>
+              </ul>
+            )}
           </div>
         </nav>
       </div>
