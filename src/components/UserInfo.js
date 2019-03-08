@@ -19,7 +19,7 @@ export default class UserInfo extends Component {
 
   render() {
     const { user } = this.props;
-
+console.log(user)
       if (user){
         return (
           <div className='userInfo'>
