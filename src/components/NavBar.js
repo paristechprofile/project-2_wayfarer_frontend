@@ -69,7 +69,7 @@ export default class NavBar extends Component {
                   </a>
                 </li>
                 <li>
-                  <button onClick={this.openModal}>Sign Up</button>
+                  <a onClick={this.openModal}>Sign Up</a>
                   <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
