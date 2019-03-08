@@ -36,7 +36,9 @@ export default class CityList extends Component {
     })
     return (
       <div>
-        {showCities}
+        <div className="col m4">
+          {showCities}
+        </div>
       </div>
     )
   }

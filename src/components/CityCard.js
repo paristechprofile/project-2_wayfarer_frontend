@@ -12,7 +12,9 @@ class CityCard extends Component {
   render () {
     return (
       <div className='city-preview'>
-        <img src={this.state.city.image} alt={this.state.city.name} className= {this.state.city.name}image />
+
+    {/*i  took of the pictures  */}
+        {/* <img src={this.state.city.image} alt={this.state.city.name} className= {this.state.city.name}image /> */}
         <h3>{this.state.city.name}</h3>
         <h3>{this.state.city.country}</h3>
         {/* {this.props.isLoggedIn ? <h4>Age: {this.state.dog.age}</h4> : ''}
