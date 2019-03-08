@@ -119,13 +119,6 @@ class App extends Component {
           handleLogOut={this.handleLogOut}
           handleInput={this.handleInput}
           handleSignUp={this.handleSignUp}
-<<<<<<< HEAD
-=======
-          modalIsOpen={this.state.modalIsOpen}
-          afterOpenModal={this.afterOpenModal}
-          closeModal={this.closeModal}
-          openModal={this.openModal}
->>>>>>> tiffany
           handleLogIn={this.handleLogIn}
         />
         <ul className="temp-ul">
@@ -172,20 +165,6 @@ class App extends Component {
               );
             }}
           />
-<<<<<<< HEAD
-          <Route
-            path="/logout"
-            render={props => {
-              return (
-                <LogOut
-                  isLoggedIn={this.state.isLoggedIn}
-                  handleLogOut={this.handleLogOut}
-                />
-              );
-            }}
-          />
-=======
->>>>>>> 86aa39982d4f700902b84edce08f04025067d8a5
 
           <Route path="/user/profile" component={ProfileContainer} />
           <Route path="/cityprofile" component={CitiesContainer} />

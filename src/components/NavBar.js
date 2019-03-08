@@ -39,29 +39,7 @@ export default class NavBar extends Component {
             ) : (
               <ul className="right">
                 <li>
-<<<<<<< HEAD
-                  <button onClick={this.openModal}>Log In</button>
-                  <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}
-                    contentLabel="Log In Modal"
-                  >
-                  <button onClick={this.closeModal}>X</button>
-                    <LogInForm
-                            isLoggedIn={this.state.isLoggedIn}
-                            handleInput={this.props.handleInput}
-                            handleLogIn={this.props.handleLogIn}
-                            onRequestClose={this.closeModal}
-                          />
-                  </Modal>
-                </li>
-                <li>
-                  <button onClick={this.openModal}>Sign Up</button>
-=======
                   <button onClick={this.props.openModal}>Log In/Sign Up</button>
->>>>>>> tiffany
                   <Modal
                     isOpen={this.props.modalIsOpen}
                     onAfterOpen={this.props.afterOpenModal}
