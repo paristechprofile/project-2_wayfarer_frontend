@@ -2,29 +2,36 @@ import React, { Component } from 'react'
 import axios from "axios";
 
 export default class UserInfo extends Component {
-  state = {
-    userInfo: []
-  };
-
-  componentDidMount() {
-    var config = {
-      headers: {'Authorization': "bearer " + localStorage.token}
-  };
   
-    axios.get("http://localhost:3001/user", config)
-    .then(res => {
-      this.setState({
-        userInfo: res.data[0]
-      })
+  componentDidMount () {
+    axios({
+      method: "get",
+        url: `http://localhost:3001/posts`,
+        headers: { authorization: `Bearer ${localStorage.token}` }
     })
+      .then(response => {
+        console.log('AXIOS RESPONSE:', response);
+        this.setState({
+          posts: response.data
+        })
+      })
   }
 
   render() {
-    const { userInfo } = this.state;
-      return (
-        <div className='userInfo'>
-          <h5>{userInfo.username}</h5>
-        </div>
-      )  
+    const { user } = this.props;
+console.log(user)
+      if (user){
+        return (
+          <div className='userInfo'>
+            <h5>{user[0].username}</h5>
+          </div>
+        )} 
+        else { 
+          return (
+            <div className='userInfo'>
+            <h5>no user</h5>
+          </div>
+          )
+      }
   }
 }
