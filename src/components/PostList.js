@@ -43,7 +43,6 @@ export default class PostList extends Component {
           <Posts info={post} isLoggedIn={this.props.isLoggedIn} />
         </div>
       )
-      console.log("wwwwwwwwwwwwwwwwww")
     })
     return (
       <div>

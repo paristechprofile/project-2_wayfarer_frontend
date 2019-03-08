@@ -5,7 +5,7 @@ export default class LogOut extends Component {
   render() {
     return (
       <div>
-        <a href="#" onClick={this.props.handleLogOut}>Log Out</a>
+        <button href="#" onClick={this.props.handleLogOut}>Log Out</button>
       </div>
     );
   }

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class SignUpForm extends Component {
     
     handleSignUp = (e) => {
-        console.log('hellooooo')
         this.props.handleSignUp(e);
         this.props.onRequestClose();
     }

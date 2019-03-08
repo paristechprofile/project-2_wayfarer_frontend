@@ -4,7 +4,6 @@ import axios from "axios";
 import NavBar from "./components/NavBar";
 import Modal from "react-modal";
 import LogInForm from "./components/LogInForm";
-import LogOut from "./components/LogOut";
 import SignUpForm from "./components/SignUpForm";
 import ProfileContainer from "./containers/ProfileContainer";
 import CitiesContainer from "./containers/CitiesContainer";
@@ -15,16 +14,16 @@ import PostModal from "./components/PostModal";
 
 import "./App.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
+// const customStyles = {
+//   content: {
+//     top: "50%",
+//     left: "50%",
+//     right: "auto",
+//     bottom: "auto",
+//     marginRight: "-50%",
+//     transform: "translate(-50%, -50%)"
+//   }
+// };
 Modal.setAppElement("body");
 class App extends Component {
   state = {
@@ -46,7 +45,6 @@ class App extends Component {
         headers: { authorization: `Bearer ${localStorage.token}` }
       })
         .then(response => {
-          console.log(response);
           this.setState({
             isLoggedIn: true,
             user: response.data

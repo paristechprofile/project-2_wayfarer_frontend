@@ -17,7 +17,7 @@
 
 import React, { Component } from 'react'
 import PostList from '../components/PostList'
-import CreatePost from '../components/CityProfile'
+// import CreatePost from '../components/CityProfile'
 
 export default class CityProfile extends Component {
   render() {

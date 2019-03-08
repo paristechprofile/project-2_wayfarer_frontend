@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LogOut from "./LogOut";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import SignUpForm from './SignUpForm'
 
