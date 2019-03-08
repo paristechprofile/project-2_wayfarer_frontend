@@ -161,30 +161,6 @@ class App extends Component {
             <Link to="/post">Post Modal</Link>
           </li>
         </ul>
-
-        {/* <button onClick={this.openModal}>Sign Up</button>
-                  <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                  >
-                  <button onClick={this.closeModal}>X</button>
-                    <SignUpForm
-                            isLoggedIn={this.state.isLoggedIn}
-                            handleInput={this.handleInput}
-                            handleSignUp={this.handleSignUp}
-                          />
-                  </Modal> */}
-
-
-        {/* <a href="#testing" className="btn modal-trigger">
-          Testing
-        </a>
-        <div className="modal" id="testing">
-          <div className="modal-content">my little pony</div>
-        </div> */}
         <Switch>
           <Route
             path="/signup"

@@ -15,7 +15,7 @@ export default class UserInfo extends Component {
     .then(res => {
       // console.log(res);
       let grabbedUsername = res.data[0].username;
-      console.log(grabbedUsername);
+      // console.log(grabbedUsername);
       this.setState({
         userInfo: [res.data[0]]
       })
@@ -23,11 +23,11 @@ export default class UserInfo extends Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log("Your userinfo render ran.")
+    // console.log(this.state);
+    // console.log("Your userinfo render ran.")
     
     const { userInfo } = this.state;
-    console.log(userInfo);
+
     const userInfoProps = userInfo.length ? (
       userInfo.map(userInfo => {
         return (
