@@ -71,11 +71,11 @@ class App extends Component {
     localStorage.clear();
   };
 
-  // handleInput = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
+  handleInput = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
   handleSignUp = e => {
     e.preventDefault();
@@ -119,6 +119,10 @@ class App extends Component {
           handleLogOut={this.handleLogOut}
           handleInput={this.handleInput}
           handleSignUp={this.handleSignUp}
+          modalIsOpen={this.state.modalIsOpen}
+          afterOpenModal={this.afterOpenModal}
+          closeModal={this.closeModal}
+          openModal={this.openModal}
           handleLogIn={this.handleLogIn}
         />
         <ul className="temp-ul">
@@ -167,17 +171,13 @@ class App extends Component {
           />
 
           <Route 
-            path="/user" 
+            path="/user/profile" 
             render={props =>{
               return (
-                <ProfileContainer
-                  isLoggedIn={this.state.isLoggedIn}
-                  user={this.state.user}
-                />
+                <ProfileContainer isLoggedIn={this.state.isLoggedIn} user={this.state.user}/>
               )
             }} 
           />
-
           <Route path="/cities" component={CitiesContainer} />
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
