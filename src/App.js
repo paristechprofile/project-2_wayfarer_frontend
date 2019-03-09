@@ -17,29 +17,30 @@ import "./App.css";
 Modal.setAppElement("body");
 class App extends Component {
   state = {
-    username: "",
-    pw: "",
-    image: "",
-    firstName: "",
-    lastName: "",
-    currentCity: "",
-    joinDate: "",
+    username: '',
+    pw: '',
+    image: '',
+    firstName: '',
+    lastName: '',
+    currentCity: '',
+    joinDate: '',
     isLoggedIn: false,
-    modalIsOpen: false
+    modalIsOpen: false,
+    user: null
   };
 
   openModal = () => {
     this.setState({ modalIsOpen: true });
-  };
+  }
 
   afterOpenModal = () => {
     // references are now sync'd and can be accessed.
     // this.subtitle.style.color = "#000";
-  };
+  }
 
   closeModal = () => {
     this.setState({ modalIsOpen: false });
-  };
+  }
 
   componentDidMount() {
     if (localStorage.token) {
@@ -88,6 +89,9 @@ class App extends Component {
         console.log(response);
         localStorage.token = response.data.signedJwt;
         this.setState({
+          firstName: "",
+          lastName: "",
+          currentCity: "",
           isLoggedIn: true
         });
       })
@@ -147,7 +151,7 @@ class App extends Component {
             path="/signup"
             render={() =>
               this.state.loggedIn ? (
-                <Redirect to="/user/profile" />
+                <Redirect to="/user/profile"/>
               ) : (
                 <SignUpForm
                   isLoggedIn={this.state.isLoggedIn}
@@ -170,16 +174,15 @@ class App extends Component {
             }}
           />
 
-          <Route
-            path="/user/profile"
-            render={props => {
+          <Route 
+            path="/user/profile" 
+            render={props =>{
               return (
-                <ProfileContainer
-                  isLoggedIn={this.state.isLoggedIn}
-                  user={this.state.user}
-                />
-              );
-            }}
+                <ProfileContainer 
+                isLoggedIn={this.state.isLoggedIn} 
+                user={this.state.user}/>
+              )
+            }} 
           />
           <Route path="/cities" component={CitiesContainer} />
           <Route exact path="/" component={HomeContainer} />
