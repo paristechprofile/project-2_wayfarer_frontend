@@ -6,7 +6,6 @@ class SignUpForm extends Component {
         this.props.handleSignUp(e);
         this.props.onRequestClose();
     }
-
     render() {
         return (
             <div>
@@ -16,7 +15,6 @@ class SignUpForm extends Component {
                     <label htmlFor='username'>Username</label>
                     <input type='text' name='username' onChange={this.props.handleInput} />
                     </div>
-
                     <div>
                     <label htmlFor='pw'>Password</label>
                     <input type='text' name='pw' onChange={this.props.handleInput} />
