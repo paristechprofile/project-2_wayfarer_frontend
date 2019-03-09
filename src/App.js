@@ -28,9 +28,11 @@ class App extends Component {
     modalIsOpen: false,
     user: null
   };
-  submitUserEdit = () => {
+  submitUserEdit = (e) => {
+    e.preventDefault();
+    // console.log("you clicked user submit")
     axios({
-      method: "PUT",
+      method: "put",
       url: `http://localhost:3001/user`,
       headers: {authorization: `Bearer ${localStorage.token}`},
       username: this.state.username,
@@ -38,9 +40,10 @@ class App extends Component {
       lastName: this.state.lastName,
       currentCity: this.state.currentCity
     })
-    .then(response => {
-      console.log(response);
-  })
+      .then(response => {
+        this.setState({})
+    })
+  }
   openModal = () => {
     this.setState({ modalIsOpen: true });
   }
@@ -52,7 +55,7 @@ class App extends Component {
 
   closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
+  };
 
   componentDidMount() {
     if (localStorage.token) {
@@ -83,11 +86,15 @@ class App extends Component {
     });
     localStorage.clear();
   };
-
+  
   handleInput = e => {
-    this.setState({
+    // console.log(this);
+      this.setState({
       [e.target.name]: e.target.value
-    });
+    }, () => {
+      
+      console.log(this.state)}
+    );
   };
 
   handleSignUp = e => {
@@ -192,7 +199,17 @@ class App extends Component {
               return (
                 <ProfileContainer 
                 isLoggedIn={this.state.isLoggedIn} 
-                user={this.state.user}/>
+                user={this.state.user}
+                username={this.state.username}
+                image={this.state.image}
+                firstName={this.state.firstName}
+                lastName={this.state.lastName}
+                currentCity={this.state.currentCity}
+                joinDate={this.state.joinDate}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+                handleInput={this.handleInput}
+                submitUserEdit={this.submitUserEdit}/>
               )
             }} 
           />

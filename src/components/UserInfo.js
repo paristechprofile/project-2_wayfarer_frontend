@@ -8,8 +8,8 @@ export default class UserInfo extends Component {
 
   componentDidMount () {
     axios({
-      method: "get",
-        url: `http://localhost:3001/posts`,
+      method: "put",
+        url: `http://localhost:3001/user`,
         headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
@@ -22,6 +22,7 @@ export default class UserInfo extends Component {
 
   render() {
     const { user } = this.props;
+    console.log(this.props)    
 console.log(user)
       if (user){
         return (
@@ -30,10 +31,10 @@ console.log(user)
             <h6>Join Date: {user[0].joinDate}</h6>
             <button>Edit User</button>
             <form>
-              <input type="text" name="username" placeholder="Username" onChange={this.props.handleInput}/>
-              <input type="text" name="firstName" placeholder="First Name" onChange={this.props.handleInput}/>
-              <input type="text" name="lastName" placeholder="Last Name" onChange={this.props.handleInput}/>
-              <input type="text" name="currentCity" placeholder="Current City" onChange={this.props.handleInput}/>
+              <input type="text" name="username" defaultValue="Username" onChange={this.props.handleInput}/>
+              <input type="text" name="firstName" defaultValue="First Name" onChange={this.props.handleInput}/>
+              <input type="text" name="lastName" defaultValue="Last Name" onChange={this.props.handleInput}/>
+              <input type="text" name="currentCity" defaultValue="Current City" onChange={this.props.handleInput}/>
               <button type="submit" onClick={this.props.submitUserEdit}>Save</button>
             </form>
           </div>
