@@ -7,8 +7,18 @@ export default class CitiesContainer extends Component {
     return (
       <div>
         <h1>This is the Cities Container.</h1>
-        <CityList />
-        <CityProfile />
+        <div className="row">
+
+          {/* <div className="col m3"> */}
+            <CityList />
+          {/* </div> */}
+
+          {/* <div className="col m9"> */}
+            <CityProfile />
+          {/* </div> */}
+
+        </div>
+
       </div>
     )
   }

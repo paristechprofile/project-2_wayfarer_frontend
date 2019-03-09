@@ -17,16 +17,84 @@
 
 import React, { Component } from 'react'
 import PostList from '../components/PostList'
-// import CreatePost from '../components/CityProfile'
+import CreatePost from '../components/CreatePost'
+import axios from 'axios'
 
 export default class CityProfile extends Component {
+  state = {
+    showCreate: false,
+    title: '',
+    text: ''
+  }
+
+  show = () => {
+    console.log('clicked the post')
+    if (this.state.showCreate){
+      this.setState({
+        showCreate: false
+      })
+    } else {
+      this.setState({
+        showCreate: true
+      })
+    }
+  }
+
+  handleInput = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  submitPost = () => {
+    let post = {
+      title: this.state.title,
+      text: this.state.text
+    }
+    console.log(post)
+    
+    // send post to backend
+    let  cityId="5c82e312232f2b049cfa6fa7";
+  
+    axios({
+      method: "post",
+      url:`http://localhost:3001/cities/${cityId}/post`,
+      headers:{ authorization: `Bearer ${localStorage.token}`},
+    }).then(response => {
+      console.log(response)
+      this.setState({
+        post: response.data.post
+      })
+      // localStorage.token = response.data.signedJwt;
+    }).catch(err => {
+      console.log(err);
+    });
+
+  }
+  // ////////
+
+  // ///////
+
   render() {
-    return (
-      <div>
-        <h1>This is the Cities Profile.</h1>
-        <PostList />
-        {/* <CreatePost /> */}
-      </div>
-    )
+    if (this.state.showCreate){
+      return (
+        <div>
+          <h1>This is the Cities Profile.</h1>
+          <button className="addPost" onClick={this.show} >Add a Post</button>
+          <CreatePost handleInput={this.handleInput} submitPost={this.submitPost}/>
+          <PostList />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h1>This is the Cities Profile.</h1>
+          <button className="addPost" onClick={this.show} >Add a Post</button>
+          
+          <PostList />
+        </div>
+      )
+    }
+    
   }
 }

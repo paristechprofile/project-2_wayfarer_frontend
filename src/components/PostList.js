@@ -10,7 +10,7 @@ export default class PostList extends Component {
   }
   
   componentDidMount () {
-    let cityId = '5c82ab6fdab451463d031022'
+    let cityId = "5c82e312232f2b049cfa6fa8"
     // router.get('/:id/posts', controllers.cities.getPosts);
     console.log('mounted posts')
     axios({
@@ -27,7 +27,7 @@ export default class PostList extends Component {
   }
   
   render() {
-    const showPosts = this.state.posts.map((post, i) => {
+    const showPosts = this.state.posts.reverse().map((post, i) => {
       return (
         <div key={i}>
           <Posts info={post} isLoggedIn={this.props.isLoggedIn} />
