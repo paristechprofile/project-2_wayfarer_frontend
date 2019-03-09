@@ -9,7 +9,6 @@ export default class CityList extends Component {
     cities: []
   }
 
-
   componentDidMount () {
     axios.get('http://localhost:3001/cities')
       .then(response => {
@@ -18,6 +17,35 @@ export default class CityList extends Component {
         })
       })
   }
+////////////////////////
+showCityDetails = () => {
+  console.log("i am inside the functionn ");
+    // console.log(post)
+    
+    // // send post to backend
+    let  cityId="5c82e312232f2b049cfa6fa7";
+  
+    axios({
+      method: "get",
+      url:`http://localhost:3001/cities/${cityId}`,
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    }).then(response => {
+      console.log(response)
+      console.log(`the city id is ${cityId}`)
+      this.setState({
+        post: response.data
+      })
+      // localStorage.token = response.data.signedJwt;
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+  //////////////////////////////////////
+
+
+
+
+  // onClick={this.props.ShowCityDetails}
   render() {
     // return (
     //   <div>
@@ -30,7 +58,7 @@ export default class CityList extends Component {
     var showCities = this.state.cities.map((city, i) => {
       return (
         <div key={i}>
-          <CityCard info={city} isLoggedIn={this.props.isLoggedIn} />
+          <CityCard info={city} isLoggedIn={this.props.isLoggedIn} showCityDetails={this.showCityDetails}/>
         </div>
       )
     })

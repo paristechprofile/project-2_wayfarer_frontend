@@ -55,14 +55,13 @@ export default class CityProfile extends Component {
     
     // send post to backend
     let  cityId="5c82e312232f2b049cfa6fa7";
+  
     axios({
       method: "post",
       url:`http://localhost:3001/cities/${cityId}/post`,
-      header:{ authorization: `Bearer ${localStorage.token}`},
+      headers:{ authorization: `Bearer ${localStorage.token}`},
     }).then(response => {
       console.log(response)
-      debugger;
-
       this.setState({
         post: response.data.post
       })

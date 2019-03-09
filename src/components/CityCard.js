@@ -12,15 +12,14 @@ class CityCard extends Component {
   render () {
     return (
       <div className='city-preview'>
+        {/*i  took of the pictures  */}
 
-    {/*i  took of the pictures  */}
-        {/* <img src={this.state.city.image} alt={this.state.city.name} className= {this.state.city.name}image /> */}
+        <img src={this.state.city.image} alt={this.state.city.name} info={this.state.city.id} onClick={this.props.showCityDetails} className={this.state.city.name}image /> */}
         <h3>{this.state.city.name}</h3>
         <h3>{this.state.city.country}</h3>
         {/* {this.props.isLoggedIn ? <h4>Age: {this.state.dog.age}</h4> : ''}
         {this.props.isLoggedIn ? <h4>Walk Frequency: {this.state.dog.frequency}</h4> : ''} */}
       </div>
-    
     )
   }
 }
