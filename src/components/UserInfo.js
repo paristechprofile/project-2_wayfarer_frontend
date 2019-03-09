@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import axios from "axios";
 
 export default class UserInfo extends Component {
-  
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  }
+
   componentDidMount () {
     axios({
       method: "get",
@@ -27,7 +30,11 @@ console.log(user)
             <h6>Join Date: {user[0].joinDate}</h6>
             <button>Edit User</button>
             <form>
-              <input type="text" placeholder="U"/>
+              <input type="text" name="username" placeholder="Username" onChange={this.props.handleInput}/>
+              <input type="text" name="firstName" placeholder="First Name" onChange={this.props.handleInput}/>
+              <input type="text" name="lastName" placeholder="Last Name" onChange={this.props.handleInput}/>
+              <input type="text" name="currentCity" placeholder="Current City" onChange={this.props.handleInput}/>
+              <button type="submit" onClick={this.props.submitUserEdit}>Save</button>
             </form>
           </div>
         )} 
