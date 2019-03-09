@@ -6,17 +6,27 @@ import CityCard from './CityCard'
 
 export default class CityList extends Component {
   state= {
-    cities: []
+    cities: [],
+    clickedCity: "",
+    clickedCityId: ""
   }
+
+  
 
   componentDidMount () {
     axios.get('http://localhost:3001/cities')
       .then(response => {
         this.setState({
           cities: response.data
-        })
+        }) 
       })
+      
   }
+
+  handleCityClick = (e) => {
+    console.log(e.target);
+  }
+
 ////////////////////////
 showCityDetails = () => {
   console.log("i am inside the functionn ");
@@ -30,8 +40,8 @@ showCityDetails = () => {
       url:`http://localhost:3001/cities/${cityId}`,
       headers: { authorization: `Bearer ${localStorage.token}`},
     }).then(response => {
-      console.log(response)
-      console.log(`the city id is ${cityId}`)
+      // console.log(response)
+      // console.log(`the city id is ${cityId}`)
       this.setState({
         post: response.data
       })
@@ -56,9 +66,16 @@ showCityDetails = () => {
     //   </div>
     // )
     var showCities = this.state.cities.map((city, i) => {
+      // console.log(this.state.cities)
       return (
         <div key={i}>
-          <CityCard info={city} isLoggedIn={this.props.isLoggedIn} showCityDetails={this.showCityDetails}/>
+          <CityCard 
+          info={city} 
+          isLoggedIn={this.props.isLoggedIn} 
+          showCityDetails={this.showCityDetails}
+          handleCityClick={this.handleCityClick}
+          id={city._id}
+          />
         </div>
       )
     })
