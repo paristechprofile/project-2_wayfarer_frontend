@@ -23,7 +23,12 @@ console.log(user)
       if (user){
         return (
           <div className='userInfo'>
-            <h5>{user[0].username}</h5>
+            <h5>Username: {user[0].username}</h5>
+            <h6>Join Date: {user[0].joinDate}</h6>
+            <button>Edit User</button>
+            <form>
+              <input type="text" placeholder="U"/>
+            </form>
           </div>
         )} 
         else { 
