@@ -28,7 +28,19 @@ class App extends Component {
     modalIsOpen: false,
     user: null
   };
-
+  submitUserEdit = () => {
+    axios({
+      method: "PUT",
+      url: `http://localhost:3001/user`,
+      headers: {authorization: `Bearer ${localStorage.token}`},
+      username: this.state.username,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      currentCity: this.state.currentCity
+    })
+    .then(response => {
+      console.log(response);
+  })
   openModal = () => {
     this.setState({ modalIsOpen: true });
   }
