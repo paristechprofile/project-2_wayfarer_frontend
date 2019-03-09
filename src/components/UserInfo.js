@@ -23,12 +23,15 @@ export default class UserInfo extends Component {
   render() {
     const { user } = this.props;
     console.log(this.props)    
-console.log(user)
+    console.log(user)
       if (user){
         return (
           <div className='userInfo'>
             <h5>Username: {user[0].username}</h5>
             <h6>Join Date: {user[0].joinDate}</h6>
+            <h6>firstName: {user[0].firstName}</h6>
+            <h6>lastName: {user[0].lastName}</h6>
+            <h6>currentCity: {user[0].currentCity}</h6>
             <button>Edit User</button>
             <form>
               <input type="text" name="username" defaultValue="Username" onChange={this.props.handleInput}/>

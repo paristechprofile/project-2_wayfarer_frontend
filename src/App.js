@@ -23,27 +23,12 @@ class App extends Component {
     firstName: '',
     lastName: '',
     currentCity: '',
-    joinDate: '',
+    joinDate: '', //I think this shouldn't be state b/c it shouldn't change. but how do we render it in user component?
     isLoggedIn: false,
     modalIsOpen: false,
     user: null
   };
-  submitUserEdit = (e) => {
-    e.preventDefault();
-    // console.log("you clicked user submit")
-    axios({
-      method: "put",
-      url: `http://localhost:3001/user`,
-      headers: {authorization: `Bearer ${localStorage.token}`},
-      username: this.state.username,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      currentCity: this.state.currentCity
-    })
-      .then(response => {
-        this.setState({})
-    })
-  }
+  
   openModal = () => {
     this.setState({ modalIsOpen: true });
   }
@@ -96,7 +81,24 @@ class App extends Component {
       console.log(this.state)}
     );
   };
-
+  submitUserEdit = (e) => {
+    e.preventDefault();
+    // console.log("you clicked user submit")
+    axios({
+      method: "put",
+      url: `http://localhost:3001/user`,
+      headers: {authorization: `Bearer ${localStorage.token}`},
+      data: {
+        username: this.state.username,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        currentCity: this.state.currentCity
+      }
+    })
+      .then(response => {
+        this.setState({response})
+    })
+  }
   handleSignUp = e => {
     e.preventDefault();
     axios
