@@ -6,8 +6,8 @@ export default class HomeContainer extends Component {
   render() {
     return (
       <div>
-        <Carousel />
-        <About />
+        <Carousel/>
+        <About/>
       </div>
     );
   }

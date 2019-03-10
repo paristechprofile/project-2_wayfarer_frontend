@@ -152,23 +152,13 @@ class App extends Component {
           openModal={this.openModal}
           handleLogIn={this.handleLogIn}
         />
-        <ul className="temp-ul">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/cities">Cities</Link>
-          </li>
-          <li>
-            <Link to="/user/profile">User Profile</Link>
-          </li>
-          <li>
-            <Link to="/createpost">Create Post</Link>
-          </li>
-          <li>
-            <Link to="/post">Post Modal</Link>
-          </li>
-        </ul>
+        {/* <ul className="temp-ul">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/cities">Cities</Link></li>
+          <li><Link to="/user/profile">User Profile</Link></li>
+          <li><Link to="/createpost">Create Post</Link></li>
+          <li><Link to="/post">Post Modal</Link></li>
+        </ul> */}
         <Switch>
           <Route
             path="/signup"
@@ -196,7 +186,6 @@ class App extends Component {
               );
             }}
           />
-
           <Route 
             path="/user/profile" 
             render={props =>{

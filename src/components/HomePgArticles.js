@@ -5,10 +5,10 @@ export default class HomePgArticles extends Component {
     return (
       <div>
         {/* <!-- Dummy article section --> */}
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <div class="section-title">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <div className="section-title">
                 <h2>Dummy Articles</h2>
                 <p>
                   Warfarer empowers travelers to blah blah blah. You no longer
@@ -19,10 +19,10 @@ export default class HomePgArticles extends Component {
             </div>
           </div>
 
-          <div class="row">
+          <div className="row">
             {/* <!-- Dummy article --> */}
-            <div class="col-md-4 col-sm-6">
-              <i class="fa fa-star-o" />
+            <div className="col-md-4 col-sm-6">
+              <i className="fa fa-star-o" />
               <h4>Article One</h4>
               <p>
                 Swag bespoke yuccie salvia photo booth la croix live-edge.
@@ -33,8 +33,8 @@ export default class HomePgArticles extends Component {
             </div>
 
             {/* <!-- Dummy article --> */}
-            <div class="col-md-4 col-sm-6">
-              <i class="fa fa-sliders" />
+            <div className="col-md-4 col-sm-6">
+              <i className="fa fa-sliders" />
               <h4>Article Two</h4>
               <p>
                 Plaid portland 90's pitchfork, single-origin coffee raw denim
@@ -44,8 +44,8 @@ export default class HomePgArticles extends Component {
             </div>
 
             {/* <!-- Dummy article --> */}
-            <div class="col-md-4 col-sm-6">
-              <i class="fa fa-bolt" />
+            <div className="col-md-4 col-sm-6">
+              <i className="fa fa-bolt" />
               <h4>Article Three</h4>
               <p>
                 Ipsum +1 voluptate velit est taxidermy lorem pitchfork four
