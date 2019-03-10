@@ -157,7 +157,7 @@ class App extends Component {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/cityprofile">Cities</Link>
+            <Link to="/cities">Cities</Link>
           </li>
           <li>
             <Link to="/user/profile">User Profile</Link>
