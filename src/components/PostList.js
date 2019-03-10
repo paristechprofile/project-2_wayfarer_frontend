@@ -16,7 +16,7 @@ export default class PostList extends Component {
     axios({
       method: "get",
         url: `http://localhost:3001/cities/${cityId}/posts`,
-        headers: { authorization: `Bearer ${localStorage.token}` }
+        // headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
         console.log('AXIOS RESPONSE:', response);
