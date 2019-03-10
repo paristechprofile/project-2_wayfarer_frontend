@@ -97,9 +97,9 @@ import CityCard from './CityCard'
 
 export default class CityList extends Component {
   state= {
-    cities: [],
-    clickedCity: "",
-    id: ""
+    cities: []
+    // clickedCity: "",
+    // id: ""
   }
 
   
@@ -117,28 +117,28 @@ export default class CityList extends Component {
 
 
 ////////////////////////
-showCityDetails = () => {
-  console.log("i am inside the functionn ");
-    // console.log(post)
+// showCityDetails = () => {
+//   console.log("i am inside the functionn ");
+//     // console.log(post)
     
-    // // send post to backend
-    let  cityId="5c82e312232f2b049cfa6fa7";
+//     // // send post to backend
+//     // let  cityId="5c82e312232f2b049cfa6fa7";
   
-    axios({
-      method: "get",
-      url:`http://localhost:3001/cities/${cityId}`,
-      headers: { authorization: `Bearer ${localStorage.token}`},
-    }).then(response => {
-      // console.log(response)
-      console.log(`the city id is ${cityId}`)
-      this.setState({
-        post: response.data
-      })
-      // localStorage.token = response.data.signedJwt;
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+//     axios({
+//       method: "get",
+//       url:`http://localhost:3001/cities/${this.props.id}`,
+//       headers: { authorization: `Bearer ${localStorage.token}`},
+//     }).then(response => {
+//       // console.log(response)
+//       // console.log(`the city id is ${cityId}`)
+//       this.setState({
+//         post: response.data
+//       })
+//       // localStorage.token = response.data.signedJwt;
+//     }).catch(err => {
+//       console.log(err);
+//     });
+//   }
   //////////////////////////////////////
 
 
@@ -162,7 +162,7 @@ showCityDetails = () => {
           info={city} 
           isLoggedIn={this.props.isLoggedIn} 
           showCityDetails={this.showCityDetails}
-          handleCityClick={this.handleCityClick}
+          handleCityClick={this.props.handleCityClick}
           id={city._id}
           />
         </div>

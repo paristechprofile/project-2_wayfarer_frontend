@@ -42,13 +42,15 @@ class CityCard extends Component {
   }
 
 
-  handleCityClick = (e) => {
-    e.preventDefault();
-    let clickCityId = `${e.target.className}`;
-    this.setState({ 
-      id: clickCityId 
-    });
-}
+//   handleCityClick = (e) => {
+//     e.preventDefault();
+//     let clickCityId = `${e.target.className}`;
+//     this.setState({ 
+//       id: clickCityId 
+//     });
+// }
+
+
 
   render () {
     console.log(this.state.id);
@@ -57,18 +59,19 @@ class CityCard extends Component {
         {/*i  took of the pictures  */}
 
         <img 
-        src={this.state.city.image} 
-        alt={this.state.city.name} 
-        name={this.state.city.name} 
-        className={this.state.city._id}
+          src={this.state.city.image} 
+          alt={this.state.city.name} 
+          name={this.state.city.name} 
+          className={this.state.city._id}
         /> 
         <h3>{this.state.city.name}</h3>
         <h3>{this.state.city.country}</h3>
+        
         <button 
-        onClick={this.handleCityClick}  
-        className={this.state.city._id}  
-        name={this.state.city.name} 
-        >
+          onClick={this.props.handleCityClick}  
+          className={this.state.city._id}  
+          name={this.state.city.name} 
+          >
           Display City
         </button>
         {/* {this.props.isLoggedIn ? <h4>Age: {this.state.dog.age}</h4> : ''}
