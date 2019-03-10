@@ -154,14 +154,14 @@ export default class CityList extends Component {
     //     </div>
     //   </div>
     // )
-    var showCities = this.state.cities.map((city, i) => {
+    let showCities = this.state.cities.map((city, i) => {
       // console.log(this.state.cities)
       return (
         <div key={i}>
           <CityCard 
           info={city} 
           isLoggedIn={this.props.isLoggedIn} 
-          showCityDetails={this.showCityDetails}
+          // showCityDetails={this.showCityDetails}
           handleCityClick={this.props.handleCityClick}
           id={city._id}
           />
@@ -170,7 +170,7 @@ export default class CityList extends Component {
     })
     return (
       <div>
-        <div className="col m4">
+        <div>
           {showCities}
         </div>
       </div>
