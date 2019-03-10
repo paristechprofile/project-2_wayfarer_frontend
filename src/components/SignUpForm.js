@@ -4,7 +4,7 @@ class SignUpForm extends Component {
     
     handleSignUp = (e) => {
         this.props.handleSignUp(e);
-        this.props.onRequestClose();
+        // this.props.onRequestClose();
     }
     render() {
         return (

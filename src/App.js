@@ -131,7 +131,8 @@ class App extends Component {
         localStorage.token = response.data.signedJwt;
         this.setState({
           isLoggedIn: true
-        });
+          });
+
       })
       .catch(err => console.log(err));
   };
@@ -171,7 +172,7 @@ class App extends Component {
         <Switch>
           <Route
             path="/signup"
-            render={() =>
+            render={() => (
               this.state.loggedIn ? (
                 <Redirect to="/user/profile"/>
               ) : (
@@ -181,7 +182,7 @@ class App extends Component {
                   handleSignUp={this.handleSignUp}
                 />
               )
-            }
+            )}
           />
           <Route
             path="/login"
