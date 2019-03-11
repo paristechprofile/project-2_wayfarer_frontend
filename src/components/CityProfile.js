@@ -1,20 +1,3 @@
-// import React, { Component } from 'react'
-
-// export default class CityProfile extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <h2>City Name</h2>
-//         <img className="temp-city-pic" src="../../images/blankcityimage.jpg" alt="Placeholder" />
-//         <button>Create New Post</button>
-//         <div className="city-posts-list">
-//             <h3>Append city posts here.</h3>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-
 import React, { Component } from 'react'
 import PostList from '../components/PostList'
 import CreatePost from '../components/CreatePost'
@@ -33,7 +16,6 @@ export default class CityProfile extends Component {
     }
   }
  
-
   show = () => {
     console.log('clicked the post')
     if (this.state.showCreate){
@@ -61,7 +43,6 @@ export default class CityProfile extends Component {
     console.log(post)
     
     // send post to backend
-    // let  cityId="5c82e312232f2b049cfa6fa7";
     let cityId= this.props.clickCityId
     axios({
       method: "post",
@@ -78,9 +59,6 @@ export default class CityProfile extends Component {
     });
 
   }
-  // ////////
-
-  // ///////
 
   render() {
     console.log("city id in cityProfile")
@@ -102,13 +80,10 @@ export default class CityProfile extends Component {
         <div>
           <h1>This is the Cities Profile.</h1>
           <button className="addPost" onClick={this.show} >Add a Post</button>
-          
-          {/* <PostList /> */}
           <PostList props={this.state.props} handleCityClick={this.props.handleCityClick}
           clickCityId={this.props.clickCityId}/>
         </div>
       )
-    }
-    
+    }  
   }
 }

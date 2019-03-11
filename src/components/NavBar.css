@@ -1,12 +1,14 @@
-nav{
+nav {
   background-color: white ;
   height: 6em;
   padding-top: .6em;
   padding-bottom: 1em;
 }
+
 nav .nav-wrapper {
   position: relative;
 }
+
 nav .brand-logo {
   position: absolute;
   color: black;
@@ -17,9 +19,11 @@ nav .brand-logo {
   font-size: 1.5em; 
   align-items: center;
 }
+
 nav a {
   color: black ;
 }
+
 nav ul a:hover {
   background-color: rgba(1,0,0,0.2);
 }
@@ -40,14 +44,19 @@ nav ul a {
 img {
   padding: 0 1em;
 }
-.tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab a.active {
+
+.tabs.tabs-transparent .tab a:hover, 
+.tabs.tabs-transparent .tab a.active {
   color: grey;
   
 }
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover, 
+.tabs .tab a.active {
   background-color: transparent;
 
 }
-.tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab.disabled a, .tabs.tabs-transparent .tab.disabled a:hover {
+.tabs.tabs-transparent .tab a, 
+.tabs.tabs-transparent .tab.disabled a, 
+.tabs.tabs-transparent .tab.disabled a:hover {
   color: black;
 }

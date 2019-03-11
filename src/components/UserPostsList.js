@@ -9,8 +9,6 @@ export default class PostList extends Component {
     }
     
     componentDidMount () {
-        // let cityId = '5c82ab6fdab451463d031022  '
-        // router.get('/:id/posts', controllers.cities.getPosts);
         console.log('mounted posts')
         axios({
             method: "get",

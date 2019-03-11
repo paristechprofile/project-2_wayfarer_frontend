@@ -19,19 +19,15 @@ export default class DemoCarousel extends Component {
         showIndicators={false}
         showStatus={false}
         showThumbs={false}
-        // style={carouselStyle}
       >
         <div>
           <img src={slide1} />
-          {/* <p className="legend">Dubai</p> */}
         </div>
         <div>
           <img src={slide2} />
-          {/* <p className="legend">London</p> */}
         </div>
         <div>
           <img src={slide3} />
-          {/* <p className="legend">San Francisco</p> */}
         </div>
       </Carousel>
     );

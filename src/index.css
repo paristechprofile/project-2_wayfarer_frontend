@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -6,6 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+
+body {
+  font-family: "Roboto";
 }
 
 code {
@@ -46,4 +50,9 @@ ul.temp-ul li{
 /* ===================================== */
 a.brand-logo.left {
   position: relative;
+}
+
+a.brand-logo {
+  font-family: "Crimson-Text";
+  letter-spacing: 5px;
 }

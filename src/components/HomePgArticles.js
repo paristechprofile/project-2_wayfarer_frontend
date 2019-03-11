@@ -4,7 +4,6 @@ export default class HomePgArticles extends Component {
   render() {
     return (
       <div>
-        {/* <!-- Dummy article section --> */}
         <div className="container">
           <div className="row">
             <div className="col-md-12 text-center">
@@ -20,7 +19,6 @@ export default class HomePgArticles extends Component {
           </div>
 
           <div className="row">
-            {/* <!-- Dummy article --> */}
             <div className="col-md-4 col-sm-6">
               <i className="fa fa-star-o" />
               <h4>Article One</h4>
@@ -32,7 +30,6 @@ export default class HomePgArticles extends Component {
               </p>
             </div>
 
-            {/* <!-- Dummy article --> */}
             <div className="col-md-4 col-sm-6">
               <i className="fa fa-sliders" />
               <h4>Article Two</h4>
@@ -43,7 +40,6 @@ export default class HomePgArticles extends Component {
               </p>
             </div>
 
-            {/* <!-- Dummy article --> */}
             <div className="col-md-4 col-sm-6">
               <i className="fa fa-bolt" />
               <h4>Article Three</h4>
