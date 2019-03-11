@@ -25,7 +25,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <div className="NavBar">
-        <nav class="nav-extended">
+        <nav className="nav-extended">
           <div className="nav-wrapper">
           <a href="/" className="brand-logo"><img src={logo}/>wayfarer</a>
             {this.props.isLoggedIn ? (
@@ -40,7 +40,6 @@ export default class NavBar extends Component {
               </ul>
             ) : (
               <ul className="right hide-on-med-and-down">
-                <li>
                   <li><Link to="/login">Log In</Link></li>
                   <li><Link to="/signup">Sign Up</Link></li>
                   {/* <a onClick={this.props.openModal}>Log In | Sign Up</a>
@@ -64,7 +63,6 @@ export default class NavBar extends Component {
                       onRequestClose={this.props.closeModal}
                     />
                   </Modal> */}
-                </li>
               </ul>
             )}
           </div>
