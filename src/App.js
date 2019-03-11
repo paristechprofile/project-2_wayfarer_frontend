@@ -94,8 +94,7 @@ class App extends Component {
           firstName: "",
           lastName: "",
           currentCity: "",
-          isLoggedIn: true,
-          _id: ''
+          isLoggedIn: true
         });
       })
       .catch(err => console.log(err));

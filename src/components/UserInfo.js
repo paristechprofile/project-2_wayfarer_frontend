@@ -22,7 +22,7 @@ export default class UserInfo extends Component {
   render() {
     const { user } = this.props;
     console.log(this.props)    
-  
+    console.log(user)
 
       if (this.props.username){
         return (
