@@ -29,6 +29,9 @@ class CitiesContainer extends Component {
             <div className="col citiesList3 s3">
               <h5>CITIES</h5>
             </div>
+            <div className="col citiesList3 s9">
+              <h5>CITIES</h5>
+            </div>
           </div>
           <div className="col citiesList3 s3"> 
             <CityList 
