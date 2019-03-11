@@ -17,13 +17,13 @@ class Posts extends Component {
       
       <div className='post-preview'>
           {/* <h5>{this.state.post.author.firstName}</h5> */}
-           <Moment format= "YYYY/DD/MM">
+          <Moment format= "YYYY/DD/MM">
           {this.state.post.date}
           </Moment>
           <h5>{this.state.post.text}</h5>
           <button className="deletePost">Delete Post</button>
           <button className="EditPost">Edit Post</button>
-     </div>
+      </div>
     )
   }
 }

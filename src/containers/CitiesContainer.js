@@ -11,6 +11,7 @@ class CitiesContainer extends Component {
 
 
   handleCityClick = (id) => {
+    console.log(this.props)
     this.setState({ 
       clickCityId :id
     });
@@ -40,7 +41,7 @@ class CitiesContainer extends Component {
         <div className="col s9 cityProfile">
           <CityProfile props={this.state.props}
           handleCityClick={this.handleCityClick}
-          clickCityId={this.state.clickCityId}/>
+          clickCityId={this.state.clickCityId}id={this.props._id}/>
         </div>
         </div>
       </div>

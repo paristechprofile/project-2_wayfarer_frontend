@@ -12,7 +12,7 @@ export default class UserPostList extends Component {
         console.log('mounted posts')
         axios({
             method: "get",
-            url: `https://project-wayfarer-app.herokuapp.com/post`,
+            url: `https://project-wayfarer-app.herokuapp.com/user/:id/post`,
             headers: { authorization: `Bearer ${localStorage.token}` }
         })
         .then(response => {
@@ -27,7 +27,7 @@ export default class UserPostList extends Component {
         const showPosts = this.state.posts.map((post, i) => {
         return (
             <div key={i}>
-            {/* <h2>User Posts</h2> */}
+            
             <UserPost info={post} isLoggedIn={this.props.isLoggedIn} />
             </div>
             )

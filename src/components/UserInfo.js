@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import UserPostList from './UserPostsList';
-// import Moment from 'react-moment';
+
 
 export default class UserInfo extends Component {
-  openModal = () => {
-    this.setState({ modalIsOpen: true });
-  }
 
   componentDidMount () {
     axios({
@@ -15,7 +12,7 @@ export default class UserInfo extends Component {
         headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
-        // console.log('AXIOS RESPONSE:', response);
+        console.log('AXIOS RESPONSE:', response);
         this.setState({
           posts: response.data
         })
@@ -25,16 +22,16 @@ export default class UserInfo extends Component {
   render() {
     const { user } = this.props;
     console.log(this.props)    
-    console.log(user)
+  
+
       if (this.props.username){
         return (
           <div className='userInfo'>
             <h5>Username: {this.props.username}</h5>
-            {/* <h6>Join Date: <Moment format="DD/MM/YYYY">{this.props.joinDate}</Moment></h6>  */}
+            
             <h6>firstName: {this.props.firstName}</h6>
             <h6>lastName: {this.props.lastName}</h6>
             <h6>currentCity: {this.props.currentCity}</h6>
-            
             <form>
               <input type="text" name="username" defaultValue="Username" onChange={this.props.handleInput}/>
               <input type="text" name="firstName" defaultValue="First Name" onChange={this.props.handleInput}/>
@@ -42,7 +39,6 @@ export default class UserInfo extends Component {
               <input type="text" name="currentCity" defaultValue="Current City" onChange={this.props.handleInput}/>
               <button type="submit" onClick={this.props.submitUserEdit}>Save</button>
             </form>
-            {/* added the list of the user posts */}
             <UserPostList/>
           </div>
         )} 

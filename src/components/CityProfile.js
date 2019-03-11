@@ -16,7 +16,7 @@ export default class CityProfile extends Component {
       modalShow:false
     }
   }
- 
+
   show = () => {
     console.log('clicked the post')
     if (this.state.showCreate){
@@ -36,22 +36,24 @@ export default class CityProfile extends Component {
     });
   };
 
-  submitPost = () => {
+  submitPost = (e) => {
+    e.preventDefault();
     let post = {
       title: this.state.title,
       text: this.state.text
     }
     console.log(post)
-    
-    // send post to backend
-    let  cityId="5c82e312232f2b049cfa6fa7";
-    // let cityId= this.props.clickCityId
+    let  cityId="5c85dd1059dbb5000cd8d389";
     axios({
       method: "post",
       url:`https://project-wayfarer-app.herokuapp.com/${cityId}/post`,
-      headers:{ authorization: `Bearer ${localStorage.token}`},
+      headers:{ authorization: `Bearer ${localStorage.token}`}
+
     }).then(response => {
       console.log(response)
+      localStorage.token = response.data.signedJwt;
+      console.log(localStorage.token)
+
       this.setState({
         post: response.data.post
       })
@@ -59,11 +61,10 @@ export default class CityProfile extends Component {
     }).catch(err => {
       console.log(err);
     });
-
   }
- 
 
   render() {
+    console.log(this.props)
     console.log('CityProfile.js', this.props.clickCityId)
     if (this.state.showCreate){
       return (
@@ -71,9 +72,7 @@ export default class CityProfile extends Component {
           <h1>This is the Cities Profile.</h1>
           <button className="addPost" onClick={this.show} >Add a Post</button>
           <CreatePost handleInput={this.handleInput} submitPost={this.submitPost}/>
-          <PostList 
-          handleCityClick={this.props.handleCityClick}
-          clickCityId={this.props.clickCityId}
+          <PostList handleCityClick={this.props.handleCityClick} clickCityId={this.props.clickCityId}
           />
         </div>
       )

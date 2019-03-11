@@ -94,7 +94,8 @@ class App extends Component {
           firstName: "",
           lastName: "",
           currentCity: "",
-          isLoggedIn: true
+          isLoggedIn: true,
+          _id: ''
         });
       })
       .catch(err => console.log(err));
@@ -160,7 +161,6 @@ class App extends Component {
               );
             }}
           />
-
           <Route 
             path="/user/profile" 
             render={props =>{
@@ -179,7 +179,19 @@ class App extends Component {
               )
             }} 
           />
-          <Route path="/cities" component={CitiesContainer} />
+          <Route 
+            path="/cities" 
+            render={props =>{
+              return (
+                <CitiesContainer
+                isLoggedIn={this.state.isLoggedIn} 
+                user={this.state.user}
+                username={this.state.username}
+                handleInput={this.handleInput}
+                id={this.state._id}/>
+              )
+            }}
+          />
           <Route exact path="/" component={HomeContainer} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />
