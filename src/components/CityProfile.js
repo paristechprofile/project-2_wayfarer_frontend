@@ -12,7 +12,8 @@ export default class CityProfile extends Component {
       showCreate: false,
       title: '',
       text: '',
-      props: this.props
+      props: this.props,
+      modalShow:false
     }
   }
  
@@ -63,7 +64,6 @@ export default class CityProfile extends Component {
  
 
   render() {
-    // console.log("city id in cityProfile")
     console.log('CityProfile.js', this.props.clickCityId)
     if (this.state.showCreate){
       return (

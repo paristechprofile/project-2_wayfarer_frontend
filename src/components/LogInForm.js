@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class LogInForm extends Component {
     render() {
         return (
-            <div>
+            <div >
                 <h2>Log In</h2>
-                <form>
+                <form >
                     <div>
                         <label htmlFor='username'>Username</label>
                         <input type='text' name='username' onChange={this.props.handleInput} />

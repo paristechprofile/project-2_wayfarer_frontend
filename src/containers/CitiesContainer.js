@@ -26,10 +26,10 @@ class CitiesContainer extends Component {
         </div>
         <div className="row citiesList2">
           <div className="row citiesList2">
-            <div className="col citiesList3 s3">
+            <div className="col list-label s3">
               <h5>CITIES</h5>
             </div>
-            <div className="col citiesList3 s9">
+            <div className="col city-focus s9">
               <h5>CITIES</h5>
             </div>
           </div>
