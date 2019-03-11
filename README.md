@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Wayfarer Front End
+The front-end section for Wayfarer was created by Paris Taylor, Tiffany Teaze, Nassima Bouziane, and Jonathan Jolivette. Our short time spend on this project taught us how to create a react application with node, mongoose, and mongodb primarily. Our application helps travelers catalogue their favorite travel destinations.
 
-## Available Scripts
+https://project-wayfarer-app-frontend.herokuapp.com/user/profile
 
-In the project directory, you can run:
+## Technologies Used
+- HTML
+- CSS
+- Javascript
+- React.js
+- React Materialize components and css styling
+- node.js
+- mongodb
+- jwt authentication 
+- bycrypt
+- trello
+- sketch
+- balsamiq
+- post-its
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Our Approach and Process
+We believe that every great project begins with good planning from start to finish. So, we tracked our projects development in trello: https://trello.com/b/NHSCMc4E/wayfarer-project-product-mgmt-fantastic-4
+We began by wire-framing out our database structure, our component and dom tree, user stories, and sprints for each step of the way. We also began by setting up file structures and platforms so we could all start the project with the same tech. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<br />
+The responses from the backend were more important than our front-end functionality at first, given that our team has pretty good design sense. But we launched into styling the appas soon as we could.
 
-### `npm test`
+## Challenges and Wins
+Some challenges for us were:
+* User authentication was a big win and challenge
+* Fully functional routes and controllers for each route
+* trying to work around materialize
+* axios calls for posts. Specifically grabbing by id
+* styling in css react
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
+One of our biggest challenges was authentication. We learned that every route that requires a JWT token needed special attention and detail-oriented focus.
 
-### `npm run build`
+Some of our wins were getting the user signed up and logged in and getting their information to render on their profile. Implementing all of our CRUD methods, and working out the bugs was also a big win. As we worked on these features, sometimes we found unnoticed bugs in previous parts of the code and we had to fix those issues first. 
+<br />
+Our team worked especially well when it came to pair programing. We found it much less painful to code with someone with a similar work-ethic and passion for good products.
+## Unsolved Problems
+* Finalizing our axios calls
+* Refactoring/Optimization
+* Some style elements
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.l
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Code Snippets
