@@ -43,7 +43,8 @@ export default class CityProfile extends Component {
     console.log(post)
     
     // send post to backend
-    let cityId= this.props.clickCityId
+    let  cityId="5c82e312232f2b049cfa6fa7";
+    // let cityId= this.props.clickCityId
     axios({
       method: "post",
       url:`https://project-wayfarer-app.herokuapp.com/${cityId}/post`,
@@ -59,6 +60,7 @@ export default class CityProfile extends Component {
     });
 
   }
+ 
 
   render() {
     console.log("city id in cityProfile")
