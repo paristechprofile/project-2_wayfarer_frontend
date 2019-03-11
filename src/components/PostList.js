@@ -12,7 +12,8 @@ export default class PostList extends Component {
     let cityId = "5c82e312232f2b049cfa6fa8"
     axios({
       method: "get",
-        url: `http://localhost:3001/cities/${cityId}/posts`,
+        url: `https://project-wayfarer-app.herokuapp.com/cities/${cityId}/posts`,
+        // headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
         this.setState({

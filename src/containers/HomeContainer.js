@@ -13,9 +13,7 @@ export default class HomeContainer extends Component {
   }
   
   render() {
-    console.log(`Inside render in home`)
-    console.log(this.state.props);
-    
+
     return (
       <div>
         <Carousel />
