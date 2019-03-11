@@ -1,22 +1,22 @@
-img#city-card {
-    width: 200px;
-    height: auto;
+.citiesList1{
+    display: flex;
+    justify-content: center;
 }
-.col{
+.citiesList2{
+    justify-content: center;
+}
+.citiesList3{
+    display: flex;
+    justify-content: center;
+}
+.row, .col {
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
-.col{
+
+.cityProfile{
     display: flex;
     justify-content: center;
-    align-content: center;
-    align-items: center;
-}
-.city-preview3{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
 }

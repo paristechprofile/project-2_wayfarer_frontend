@@ -21,13 +21,13 @@ export default class DemoCarousel extends Component {
         showThumbs={false}
       >
         <div>
-          <img src={slide1} />
+          <img src={slide1} alt='some value' />
         </div>
         <div>
-          <img src={slide2} />
+          <img src={slide2} alt='some value'/>
         </div>
         <div>
-          <img src={slide3} />
+          <img src={slide3} alt='some value'/>
         </div>
       </Carousel>
     );

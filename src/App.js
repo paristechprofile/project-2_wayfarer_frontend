@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Link, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 import NavBar from "./components/NavBar";
-import Modal from "react-modal";
 import LogInForm from "./components/LogInForm";
 import SignUpForm from "./components/SignUpForm";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -175,8 +174,6 @@ class App extends Component {
                 lastName={this.state.lastName}
                 currentCity={this.state.currentCity}
                 joinDate={this.state.joinDate}
-                isLoggedIn={this.state.isLoggedIn}
-                user={this.state.user}
                 handleInput={this.handleInput}
                 submitUserEdit={this.submitUserEdit}/>
               )

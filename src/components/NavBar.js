@@ -1,33 +1,16 @@
 import React, { Component } from "react";
 import LogOut from "./LogOut";
-import Modal from "react-modal";
-import SignUpForm from './SignUpForm'
-import LogInForm from './LogInForm'
 import { Link } from "react-router-dom"; 
 import './NavBar.css'
 import logo from "./images/Mountain-Icon.png"
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
-
-Modal.setAppElement("body");
-
 export default class NavBar extends Component {
-
   render() {
     return (
       <div className="NavBar">
         <nav className="nav-extended">
           <div className="nav-wrapper">
-          <a href="/" className="brand-logo"><img src={logo}/>wayfarer</a>
+          <a href="/" className="brand-logo"><img id="logo" src={logo} alt='some value'/>wayfarer</a>
             {this.props.isLoggedIn ? (
               
               <ul className="right hide-on-med-and-down">
