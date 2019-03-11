@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import UserPostList from './UserPostsList';
+import Moment from 'react-moment';
 
 export default class UserInfo extends Component {
   openModal = () => {
