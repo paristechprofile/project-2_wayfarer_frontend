@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import UserPostList from './UserPostsList';
 
 export default class UserInfo extends Component {
   openModal = () => {
@@ -40,6 +41,8 @@ export default class UserInfo extends Component {
               <input type="text" name="currentCity" defaultValue="Current City" onChange={this.props.handleInput}/>
               <button type="submit" onClick={this.props.submitUserEdit}>Save</button>
             </form>
+            {/* added the list of the user posts */}
+            <UserPostList/>
           </div>
         )} 
         else { 
