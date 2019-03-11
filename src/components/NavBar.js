@@ -43,27 +43,6 @@ export default class NavBar extends Component {
                 <li>
                   <li><Link to="/login">Log In</Link></li>
                   <li><Link to="/signup">Sign Up</Link></li>
-                  {/* <a onClick={this.props.openModal}>Log In | Sign Up</a>
-                  <Modal
-                    isOpen={this.props.modalIsOpen}
-                    onAfterOpen={this.props.afterOpenModal}
-                    onRequestClose={this.props.closeModal}
-                    style={customStyles}
-                    contentLabel="Sign Up Modal"
-                  >
-                    <button onClick={this.props.closeModal}>X</button>
-                    <LogInForm 
-                      isLoggedIn={this.props.isLoggedIn} 
-                      handleInput={this.props.handleInput} 
-                      handleLogIn={this.props.handleLogIn}
-                      />
-                    <SignUpForm
-                      isLoggedIn={this.props.isLoggedIn}
-                      handleInput={this.props.handleInput}
-                      handleSignUp={this.props.handleSignUp}
-                      onRequestClose={this.props.closeModal}
-                    />
-                  </Modal> */}
                 </li>
               </ul>
             )}
@@ -73,23 +52,3 @@ export default class NavBar extends Component {
     );
   }
 }
-
-  // <nav>
-  //   <div class="nav-wrapper">
-  //     <a href="#!" class="brand-logo">Logo</a>
-  //     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      // <ul class="right hide-on-med-and-down">
-      //   <li><a href="sass.html">Sass</a></li>
-      //   <li><a href="badges.html">Components</a></li>
-      //   <li><a href="collapsible.html">Javascript</a></li>
-      //   <li><a href="mobile.html">Mobile</a></li>
-      // </ul>
-  //   </div>
-  // </nav>
-
-  // <ul class="sidenav" id="mobile-demo">
-  //   <li><a href="sass.html">Sass</a></li>
-  //   <li><a href="badges.html">Components</a></li>
-  //   <li><a href="collapsible.html">Javascript</a></li>
-  //   <li><a href="mobile.html">Mobile</a></li>
-  // </ul>
