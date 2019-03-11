@@ -7,27 +7,24 @@ export default class ProfileContainer extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s12">
-            <h1>This is the User Profile Container.</h1>
+          <div className="row">
+            <div className="col s4">
+              <UserInfo 
+                user={this.props.user}
+                handleInput={this.props.handleInput}
+                isLoggedIn={this.props.isLoggedIn} 
+                username={this.props.username}
+                image={this.props.image}
+                firstName={this.props.firstName}
+                lastName={this.props.lastName}
+                currentCity={this.props.currentCity}
+                joinDate={this.props.joinDate}
+                submitUserEdit={this.props.submitUserEdit}/>
+            </div>
+            <div className="col s4">
+              <UserPostsList />
+            </div>
           </div>
-        <div className="row">
-          <div className="col s4">
-            <UserInfo 
-              user={this.props.user}
-              handleInput={this.props.handleInput}
-              isLoggedIn={this.props.isLoggedIn} 
-              username={this.props.username}
-              image={this.props.image}
-              firstName={this.props.firstName}
-              lastName={this.props.lastName}
-              currentCity={this.props.currentCity}
-              joinDate={this.props.joinDate}
-              submitUserEdit={this.props.submitUserEdit}/>
-          </div>
-          <div className="col s4">
-            <UserPostsList />
-          </div>
-        </div>
         </div>
       </div>
     )

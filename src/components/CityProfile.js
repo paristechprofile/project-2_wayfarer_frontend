@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import PostList from '../components/PostList'
 import CreatePost from '../components/CreatePost'
@@ -17,7 +16,6 @@ export default class CityProfile extends Component {
     }
   }
  
-
   show = () => {
     console.log('clicked the post')
     if (this.state.showCreate){
@@ -84,13 +82,10 @@ export default class CityProfile extends Component {
         <div>
           <h1>This is the Cities Profile.</h1>
           <button className="addPost" onClick={this.show} >Add a Post</button>
-          
-          {/* <PostList /> */}
           <PostList props={this.state.props} handleCityClick={this.props.handleCityClick}
           clickCityId={this.props.clickCityId}/>
         </div>
       )
-    }
-    
+    }  
   }
 }
