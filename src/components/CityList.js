@@ -105,7 +105,7 @@ export default class CityList extends Component {
   
 
   componentDidMount () {
-    axios.get('http://localhost:3001/cities')
+    axios.get('https://project-wayfarer-app.herokuapp.com/cities')
       .then(response => {
         this.setState({
           cities: response.data

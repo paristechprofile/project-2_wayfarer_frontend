@@ -49,7 +49,7 @@ export default class CityProfile extends Component {
     // let cityId= this.props.clickCityId
     axios({
       method: "post",
-      url:`http://localhost:3001/cities/${cityId}/post`,
+      url:`https://project-wayfarer-app.herokuapp.com/${cityId}/post`,
       headers:{ authorization: `Bearer ${localStorage.token}`},
     }).then(response => {
       console.log(response)

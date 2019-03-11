@@ -10,7 +10,7 @@ export default class UserInfo extends Component {
   componentDidMount () {
     axios({
       method: "put",
-        url: `http://localhost:3001/user`,
+        url: `https://project-wayfarer-app.herokuapp.com/user`,
         headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
@@ -29,11 +29,11 @@ export default class UserInfo extends Component {
         return (
           <div className='userInfo'>
             <h5>Username: {user[0].username}</h5>
-            <h6>Join Date: {user[0].joinDate}</h6>
+            <h6>Join Date: <Moment format="DD/MM/YYYY">{user[0].joinDate}</Moment></h6> 
             <h6>firstName: {user[0].firstName}</h6>
             <h6>lastName: {user[0].lastName}</h6>
             <h6>currentCity: {user[0].currentCity}</h6>
-            <button>Edit User</button>
+            {/* <button>Edit User</button> */}
             <form>
               <input type="text" name="username" defaultValue="Username" onChange={this.props.handleInput}/>
               <input type="text" name="firstName" defaultValue="First Name" onChange={this.props.handleInput}/>

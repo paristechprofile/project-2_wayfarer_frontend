@@ -10,11 +10,9 @@ import CitiesContainer from "./containers/CitiesContainer";
 import HomeContainer from "./containers/HomeContainer";
 import CreatePost from "./components/CreatePost";
 import PostModal from "./components/PostModal";
-// import CityList from "./components/CityList"
 
 import "./App.css";
 
-Modal.setAppElement("body");
 class App extends Component {
   state = {
     username: '',
@@ -23,30 +21,17 @@ class App extends Component {
     firstName: '',
     lastName: '',
     currentCity: '',
-    joinDate: '', //I think this shouldn't be state b/c it shouldn't change. but how do we render it in user component?
+    joinDate: '',
     isLoggedIn: false,
     modalIsOpen: false,
     user: null
-  };
-  
-  openModal = () => {
-    this.setState({ modalIsOpen: true });
-  }
-
-  afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = "#000";
-  }
-
-  closeModal = () => {
-    this.setState({ modalIsOpen: false });
   };
 
   componentDidMount() {
     if (localStorage.token) {
       axios({
         method: "get",
-        url: `http://localhost:3001/user`,
+        url: `https://project-wayfarer-app.herokuapp.com/`,
         headers: { authorization: `Bearer ${localStorage.token}` }
       })
         .then(response => {
@@ -73,20 +58,16 @@ class App extends Component {
   };
   
   handleInput = e => {
-    // console.log(this);
       this.setState({
       [e.target.name]: e.target.value
-    }, () => {
-      
-      console.log(this.state)}
-    );
+    });
   };
+
   submitUserEdit = (e) => {
     e.preventDefault();
-    // console.log("you clicked user submit")
     axios({
       method: "put",
-      url: `http://localhost:3001/user`,
+      url: `https://project-wayfarer-app.herokuapp.com/user`,
       headers: {authorization: `Bearer ${localStorage.token}`},
       data: {
         username: this.state.username,
@@ -103,7 +84,7 @@ class App extends Component {
   handleSignUp = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/user/signup", {
+      .post("https://project-wayfarer-app.herokuapp.com/user/signup", {
         username: this.state.username,
         pw: this.state.pw
       })
@@ -123,7 +104,7 @@ class App extends Component {
   handleLogIn = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/user/login", {
+      .post("https://project-wayfarer-app.herokuapp.com/user/login", {
         username: this.state.username,
         pw: this.state.pw
       })
@@ -152,12 +133,7 @@ class App extends Component {
           openModal={this.openModal}
           handleLogIn={this.handleLogIn}
         />
-        {/* <ul className="temp-ul">
-          <li><Link to="/">Home</Link></li><li><Link to="/cities">Cities</Link></li>
-          <li><Link to="/user/profile">User Profile</Link></li>
-          <li><Link to="/createpost">Create Post</Link></li>
-          <li><Link to="/post">Post Modal</Link></li>
-        </ul> */}
+        
         <Switch>
           <Route
             path="/signup"
