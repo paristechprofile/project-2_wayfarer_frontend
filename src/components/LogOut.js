@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import css
 
 export default class LogOut extends Component {
   render() {

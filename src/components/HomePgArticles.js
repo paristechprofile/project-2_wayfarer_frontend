@@ -7,7 +7,7 @@ export default class HomePgArticles extends Component {
         {/* <!-- Dummy article section --> */}
         <div className="container">
           <div className="row">
-            <div className="col s12">
+            <div className="col sections12">
               <div className="section-title">
                 <h2>Wayfarer Is...</h2>
                 <p>
