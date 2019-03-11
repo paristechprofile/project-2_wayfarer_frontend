@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import CityCard from './CityCard'
+import './CityList.css'
 
 export default class CityList extends Component {
   state= {

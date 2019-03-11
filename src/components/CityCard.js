@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './CityCard.css'
 
 class CityCard extends Component {
   constructor (props) {
@@ -24,9 +25,9 @@ passMyCityId = () =>{
           alt={this.state.city.name} 
           name={this.state.city.name} 
           className={this.state.city._id}
+          id="city-card"
         /> 
         <h3>{this.state.city.name}</h3>
-        <h3>{this.state.city.country}</h3>
         <button 
           onClick={this.passMyCityId}  
           className={this.state.city._id}  
