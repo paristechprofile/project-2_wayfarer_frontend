@@ -10,7 +10,7 @@ export default class UserInfo extends Component {
   componentDidMount () {
     axios({
       method: "put",
-        url: `http://localhost:3001/user`,
+        url: `https://project-wayfarer-app.herokuapp.com/user`,
         headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {

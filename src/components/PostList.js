@@ -14,7 +14,7 @@ export default class PostList extends Component {
     console.log('mounted posts')
     axios({
       method: "get",
-        url: `http://localhost:3001/cities/${cityId}/posts`,
+        url: `https://project-wayfarer-app.herokuapp.com/cities/${cityId}/posts`,
         // headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
