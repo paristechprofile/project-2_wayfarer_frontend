@@ -7,9 +7,9 @@ export default class HomePgArticles extends Component {
         {/* <!-- Dummy article section --> */}
         <div className="container">
           <div className="row">
-            <div className="col-md-12 text-center">
+            <div className="col s12">
               <div className="section-title">
-                <h2>Dummy Articles</h2>
+                <h2>Wayfarer Is...</h2>
                 <p>
                   Warfarer empowers travelers to blah blah blah. You no longer
                   have to settle for lousy resources when it comes to fulfilling
@@ -21,7 +21,7 @@ export default class HomePgArticles extends Component {
 
           <div className="row">
             {/* <!-- Dummy article --> */}
-            <div className="col-md-4 col-sm-6">
+            <div className="col s12 l4">
               <i className="fa fa-star-o" />
               <h4>Article One</h4>
               <p>
@@ -33,7 +33,7 @@ export default class HomePgArticles extends Component {
             </div>
 
             {/* <!-- Dummy article --> */}
-            <div className="col-md-4 col-sm-6">
+            <div className="col s12 l4">
               <i className="fa fa-sliders" />
               <h4>Article Two</h4>
               <p>
@@ -44,7 +44,7 @@ export default class HomePgArticles extends Component {
             </div>
 
             {/* <!-- Dummy article --> */}
-            <div className="col-md-4 col-sm-6">
+            <div className="col s12 l4">
               <i className="fa fa-bolt" />
               <h4>Article Three</h4>
               <p>

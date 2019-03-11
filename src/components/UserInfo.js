@@ -14,7 +14,7 @@ export default class UserInfo extends Component {
         headers: { authorization: `Bearer ${localStorage.token}` }
     })
       .then(response => {
-        console.log('AXIOS RESPONSE:', response);
+        // console.log('AXIOS RESPONSE:', response);
         this.setState({
           posts: response.data
         })
@@ -25,15 +25,15 @@ export default class UserInfo extends Component {
     const { user } = this.props;
     console.log(this.props)    
     console.log(user)
-      if (user){
+      if (this.props.username){
         return (
           <div className='userInfo'>
-            <h5>Username: {user[0].username}</h5>
-            <h6>Join Date: <Moment format="DD/MM/YYYY">{user[0].joinDate}</Moment></h6> 
-            <h6>firstName: {user[0].firstName}</h6>
-            <h6>lastName: {user[0].lastName}</h6>
-            <h6>currentCity: {user[0].currentCity}</h6>
-            {/* <button>Edit User</button> */}
+            <h5>Username: {this.props.username}</h5>
+            {/* <h6>Join Date: <Moment format="DD/MM/YYYY">{this.props.joinDate}</Moment></h6>  */}
+            <h6>firstName: {this.props.firstName}</h6>
+            <h6>lastName: {this.props.lastName}</h6>
+            <h6>currentCity: {this.props.currentCity}</h6>
+            
             <form>
               <input type="text" name="username" defaultValue="Username" onChange={this.props.handleInput}/>
               <input type="text" name="firstName" defaultValue="First Name" onChange={this.props.handleInput}/>
