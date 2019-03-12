@@ -9,7 +9,7 @@ export default class PostList extends Component {
   }
   
   componentDidMount () {
-    let cityId = "5c82e312232f2b049cfa6fa8"
+    let cityId = "5c869978a1be98000e80c0e7"
     axios({
       method: "get",
         url: `https://project-wayfarer-app.herokuapp.com/cities/${cityId}/posts`,

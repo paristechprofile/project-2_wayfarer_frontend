@@ -16,7 +16,7 @@ class Posts extends Component {
     return (
       
       <div className='post-preview'>
-          <h5>{this.state.post.author.firstName}</h5>
+          {/* <h5>{this.state.post.author.firstName}</h5> */}
            <Moment format= "YYYY/DD/MM">
           {this.state.post.date}
           </Moment>

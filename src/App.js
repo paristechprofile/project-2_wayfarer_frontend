@@ -9,6 +9,7 @@ import CitiesContainer from "./containers/CitiesContainer";
 import HomeContainer from "./containers/HomeContainer";
 import CreatePost from "./components/CreatePost";
 import PostModal from "./components/PostModal";
+import jwtDecode from 'jwt-decode';
 
 import "./App.css";
 
@@ -28,19 +29,15 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.token) {
-      axios({
-        method: "get",
-        url: `https://project-wayfarer-app.herokuapp.com/`,
-        headers: { authorization: `Bearer ${localStorage.token}` }
-      })
-        .then(response => {
-          this.setState({
-            isLoggedIn: true,
-            user: response.data
-          });
-        })
-        .catch(err => console.log(err));
-    } else {
+    const decoded = jwtDecode(localStorage.token);
+    this.setState({
+      isLoggedIn:true,
+      username: decoded.username,
+      _id: decoded.id
+    })
+    console.log(decoded)
+  }
+      else {
       this.setState({
         isLoggedIn: false
       });
@@ -118,6 +115,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <NavBar
@@ -191,7 +189,8 @@ class App extends Component {
               )
             }}
           />
-          <Route exact path="/" component={HomeContainer} />
+          {/* <Route exact path="/" component={HomeContainer} /> */}
+          <Route exact path="/" render={props => <HomeContainer {...props} />} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/post" component={PostModal} />
         </Switch>
