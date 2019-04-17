@@ -63,7 +63,7 @@ class App extends Component {
     e.preventDefault();
     axios({
       method: "put",
-      url: `https://project-wayfarer-app.herokuapp.com/user`,
+      url: `http://localhost:3001/user`,
       headers: {authorization: `Bearer ${localStorage.token}`},
       data: {
         username: this.state.username,
@@ -80,7 +80,7 @@ class App extends Component {
   handleSignUp = e => {
     e.preventDefault();
     axios
-      .post("https://project-wayfarer-app.herokuapp.com/user/signup", {
+      .post("http://localhost:3001/user/signup", {
         username: this.state.username,
         pw: this.state.pw
       })
@@ -100,7 +100,7 @@ class App extends Component {
   handleLogIn = e => {
     e.preventDefault();
     axios
-      .post("https://project-wayfarer-app.herokuapp.com/user/login", {
+      .post("http://localhost:3001/user/login", {
         username: this.state.username,
         pw: this.state.pw
       })

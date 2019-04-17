@@ -42,11 +42,13 @@ export default class CityProfile extends Component {
       title: this.state.title,
       text: this.state.text
     }
+
+    
     console.log(post)
-    let  cityId="5c85dd1059dbb5000cd8d389";
+    let  cityId="5cb7a0181b8a5545fdb25aea";
     axios({
       method: "post",
-      url:`https://project-wayfarer-app.herokuapp.com/${cityId}/post`,
+      url:`https://localhost:3001/cities/${cityId}/posts`,
       headers:{ authorization: `Bearer ${localStorage.token}`}
 
     }).then(response => {
